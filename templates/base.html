@@ -23,6 +23,10 @@
             rel="stylesheet"
             integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
             crossorigin="anonymous"/>
+      <link rel="preconnect" href="https://fonts.googleapis.com"/>
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+      <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
+                  rel="stylesheet"/>
       <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
     {% endblock %}
 
@@ -51,155 +55,7 @@
     <header>
 
       {% block navbar %}
-        <nav class="navbar navbar-expand-lg">
-          <div class="container">
-            <a class="navbar-brand" href="#">
-              <span class="color-logo-l">C</span>AR 
-              <span class="color-logo-l">G</span>ADGET 
-              <span class="color-logo-l">W</span>ORLD
-            </a>
-            <button class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation">
-              <span class="burger-icon">
-                <i class="fa-solid fa-bars fa-lg"></i>
-              </span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <form class="d-flex mx-auto" role="search" method="get" action="">
-                <div class="input-group">
-                  <input class="form-control search-box"
-                         type="search"
-                         placeholder="Search for accessory"
-                         name="search"
-                         aria-label="Search for accessory"/>
-                  <button class="btn btn-search"
-                          type="submit"
-                          aria-label="Search">
-                          <i class="fa-solid fa-magnifying-glass"></i>
-                  </button>
-                </div>
-              </form>
-              <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle"
-                     href="#"
-                     role="button"
-                     data-bs-toggle="dropdown"
-                     aria-expanded="false">Universal</a>
-                  <ul class="dropdown-menu">
-                    <li>
-                      <a class="dropdown-item" href="#">All accessories</a>
-                    </li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li>
-                      <a class="dropdown-item" href="#">USB chargings</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">Vacuum cleanerso</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">Air fresheners</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">Hengers</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">Phone Holders</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">Organizers</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle"
-                     href="#"
-                     role="button"
-                     data-bs-toggle="dropdown"
-                     aria-expanded="false">
-                     Catalogue
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li>
-                      <a class="dropdown-item" href="#">Audi accessories</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">Volkswagen accessories</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">Mercedes accessories</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">Toyota accessories</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">Hyundai accessories</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">Citroen accessories</a>
-                    </li>
-                  </ul>
-                </li>
-                {% if user.is_authenticated %}
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle"
-                       href="#"
-                       role="button"
-                       data-bs-toggle="dropdown"
-                       aria-expanded="false">
-                      {{ user.username }}
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                      <li>
-                        <a class="dropdown-item" href="">Orders</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="">My Account</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="">Wishlist (0)</a>
-                      </li>
-                      <li>
-                        <hr class="dropdown-divider" />
-                      </li>
-                      {% if user.is_staff %}
-                        <li>
-                          <a class="dropdown-item" href="#">Manage Products</a>
-                        </li>
-                        <li>
-                          <a class="dropdown-item" href="">Manage Orders</a>
-                        </li>
-                      {% endif %}
-                      <li>
-                        <hr class="dropdown-divider" />
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
-                      </li>
-                    </ul>
-                  </li>
-                {% else %}
-                  <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-                  </li>
-                {% endif %}
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <i class="fa-solid fa-cart-shopping"></i> 0,00&#8364  
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
+        {% include "includes/nav-bar.html" %}
       {% endblock %}
 
       {% block page_header %}
@@ -222,75 +78,9 @@
     {% endblock post_load_js %}
 
   
-    <!-- Footer -->
-    <footer>
-      <!-- Footer Opening Hours & Email -->
-      <div class="footer-section">
-        <a href="#">Subscribe to the Newsletter</a>
-        <br/>
-        <br/>
-        <a href="#">Contact US</a>
-      </div>
-      <!-- Footer Nav Links -->
-      <div class="footer-section">
-        <ul id="footer-nav">
-          <li>
-            <a href="#">Universal Accesories</a>
-          </li>
-          <li>
-            <a href="#">Catalogue</a>
-          </li>
-          <li>
-            <a href="#">Privacy Policy</a>
-          </li>
-        </ul>
-      </div>
-      <!-- Social Media Links -->
-      <div class="footer-section">
-        <ul class="footer-socials">
-          <li>
-            <a href="https://www.facebook.com"
-               target="_blank"
-               rel="noopener"
-               aria-label="Visit our Facebook page (opens in a new tab)">
-                <i class="fa-brands fa-square-facebook fa-xl"></i>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.twitter.com"
-               target="_blank"
-               rel="noopener"
-               aria-label="Visit our Twitter page (opens in a new tab)">
-               <i class="fa-brands fa-square-twitter fa-xl"></i>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.instagram.com"
-               target="_blank"
-               rel="noopener"
-               aria-label="Visit our Instagram page (opens in a new tab)">
-               <i class="fa-brands fa-instagram fa-xl"></i>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.tiktok.com"
-               target="_blank"
-               rel="noopener"
-               aria-label="Visit our Tiktok (opens in a new tab)">
-               <i class="fa-brands fa-tiktok fa-xl"></i>
-            </a>
-          </li>
-          <li>
-            <a href="https://https://github.com/satogako/CarGadgetWorld"
-               target="_blank"
-               rel="noopener"
-               aria-label="Visit our Tiktok (opens in a new tab)">
-               <i class="fa-brands fa-square-github fa-xl"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </footer>
+    {% block footer %}
+      {% include "includes/footer.html" %}
+    {% endblock %}
   
   </body>
 

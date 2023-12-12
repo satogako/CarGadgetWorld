@@ -1,0 +1,149 @@
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <span class="color-logo-l">C</span>AR 
+        <span class="color-logo-l">G</span>ADGET 
+        <span class="color-logo-l">W</span>ORLD
+      </a>
+      <button class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="burger-icon">
+          <i class="fa-solid fa-bars fa-lg"></i>
+        </span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <form class="d-flex mx-auto" role="search" method="get" action="">
+          <div class="input-group">
+            <input class="form-control search-box"
+                   type="search"
+                   placeholder="Search for accessory"
+                   name="search"
+                   aria-label="Search for accessory"/>
+            <button class="btn btn-search"
+                    type="submit"
+                    aria-label="Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+        </form>
+        <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle"
+               href="#"
+               role="button"
+               data-bs-toggle="dropdown"
+               aria-expanded="false">Universal</a>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="#">All accessories</a>
+              </li>
+              <li><hr class="dropdown-divider"></li>
+              <li>
+                <a class="dropdown-item" href="#">USB chargings</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Vacuum cleanerso</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Air fresheners</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Hengers</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Phone Holders</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Organizers</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle"
+               href="#"
+               role="button"
+               data-bs-toggle="dropdown"
+               aria-expanded="false">
+               Catalogue
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="#">Audi accessories</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Volkswagen accessories</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Mercedes accessories</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Toyota accessories</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Hyundai accessories</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Citroen accessories</a>
+              </li>
+            </ul>
+          </li>
+          {% if user.is_authenticated %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle"
+                 href="#"
+                 role="button"
+                 data-bs-toggle="dropdown"
+                 aria-expanded="false">
+                {{ user.username }}
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <a class="dropdown-item" href="">Orders</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="">My Account</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="">Wishlist (0)</a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                {% if user.is_staff %}
+                  <li>
+                    <a class="dropdown-item" href="#">Manage Products</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="">Manage Orders</a>
+                  </li>
+                {% endif %}
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
+                </li>
+              </ul>
+            </li>
+          {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+            </li>
+          {% endif %}
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa-solid fa-cart-shopping"></i> 0,00&#8364  
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
