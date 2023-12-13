@@ -33,9 +33,12 @@ class Catalogue(models.Model):
         verbose_name_plural = 'Catalogue'
 
     CAR_BRAND = (
-        ('Audi', 'Volkswagen'),
-        ('Mercedes', 'Toyota'),
-        ('Hyundai', 'Citroen'),
+        ('Audi', 'Audi'),
+        ('Volkswagen', 'Volkswagen'),
+        ('Mercedes', 'Mercedes'),
+        ('Toyota', 'Toyota'),
+        ('Hyundai', 'Hyundai'),
+        ('Citroen', 'Citroen'),
     )
 
     auto_brand = models.CharField(
@@ -43,7 +46,7 @@ class Catalogue(models.Model):
     )
 
     def __str__(self):
-        return f'{self.name}'
+        return f'{self.auto_brand}'
 
 
 class Image(models.Model):
