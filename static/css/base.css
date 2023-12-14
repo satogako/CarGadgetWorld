@@ -15,15 +15,15 @@ html {
     height: 100%;
 }
 
-body {
-    /*background-color: var(--main-bg-color);*/
+/*body {
     min-height: 100vh;
-}
+}*/
 
 
 main {
     background-color: var(--main-bg-color);
     margin: auto;
+    min-height: calc(100vh - 216.5px);
 }
 
 h1,
@@ -162,7 +162,7 @@ footer i:hover {
 .hero-image {
     background: url('/media/image-hero.jpg') no-repeat center;
     background-size: cover;
-    min-height: calc(100vh - 69px);
+    min-height: calc(100vh - 64px);
 }
 
 
