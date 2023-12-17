@@ -1,0 +1,1 @@
+web: gunicorn car_gadget_world.wsgi:application
