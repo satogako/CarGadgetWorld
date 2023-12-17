@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_header %}
+	<div class="container">
+		<div class="row">
+			<div class="col"></div>
+		</div>
+	</div>
+{% endblock %}
+{% block content %}
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col">
+				<h2>Products</h2>
+				<hr />
+			</div>
+		</div>
+		<div class="row px-5">
+			<div class="col">
+				<div class="row">
+						<div class="col-12">
+							<div class="card product-card mb-3">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-4">
+                        {% if product.image %}
+                          <img src="{% static 'images/bag.jpg' %}"
+                            class="card-img-top pt-3 px-3"
+                            alt="{{ product.name }}"/>
+                        {% else %}
+                          <img src="{% static 'images/bag.jpg' %}"
+                            class="card-img-top p-3"
+                            alt="{{ product.name }}"/>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <p class="card-title text-uppercase">{{ product.brand }}</p>
+                        <h3 class="card-text fs-5">{{ product.name }}</h3>
+                        <p class="text-muted">SKU: {{ product.sku }}</p>
+                        <p>{{ product.description }}</p>
+                        <div>
+                          <p class="bg-price-color">price <span class="fs-3 dark-text-color">{{ product.price }}</span> €</p>
+                        </div>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                          <a href="#" class="btn btn-outline-secondary btn-sm btn-width-min20">
+                            <i class="fa-solid fa-heart fa-lg"></i>
+                          </a>
+                          <a href="#" class="btn btn-color btn-sm btn-width-min50">
+                            Add to Cart
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+							</div>
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

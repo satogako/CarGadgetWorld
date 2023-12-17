@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="{% url 'home' %}">
         <span class="color-logo-l">C</span>AR 
         <span class="color-logo-l">G</span>ADGET 
         <span class="color-logo-l">W</span>ORLD
@@ -37,10 +37,10 @@
                href="#"
                role="button"
                data-bs-toggle="dropdown"
-               aria-expanded="false">Universal</a>
+               aria-expanded="false">Accessories</a>
             <ul class="dropdown-menu">
               <li>
-                <a class="dropdown-item" href="#">All accessories</a>
+                <a class="dropdown-item" href="{% url 'products' %}">All accessories</a>
               </li>
               <li><hr class="dropdown-divider"></li>
               <li>

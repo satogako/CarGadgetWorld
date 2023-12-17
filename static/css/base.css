@@ -8,21 +8,20 @@
     --button-color: #28a745;
     --color-red: #ff4136;
     --color-black: #000103;
-    --color-off-white: rgba(255, 255, 255, 0.8)
+    --color-off-white: rgba(255, 255, 255, 0.8);
+    --color-text: #666666;
+    --color-header: #333333;
 }
 
 html {
     height: 100%;
 }
 
-/*body {
-    min-height: 100vh;
-}*/
-
 
 main {
     background-color: var(--main-bg-color);
     min-height: calc(100vh - 216.5px);
+    color: var(--color-text);
 }
 
 h1,
@@ -32,6 +31,11 @@ h4,
 h5,
 h6 {
     font-family: var(--font-display-font);
+    color: var(--color-header);
+}
+
+.dark-text-color {
+    color: var(--color-header);
 }
 
 .navbar {
@@ -67,7 +71,7 @@ h6 {
 }
 
 .btn-home-color:hover{
-    background-color: var(--color-black);
+    background-color: var(--color-black) !important;
     border-color: var(--color-secondary) !important;
     color: var(--color-white) !important;
 }
