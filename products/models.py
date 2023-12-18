@@ -49,13 +49,6 @@ class Catalogue(models.Model):
         return f'{self.auto_brand}'
 
 
-class Image(models.Model):
-    image_url = models.URLField(max_length=1024, null=True, blank=True)
-    image = models.ImageField(null=True, blank=True)
-
-    def __str__(self):
-        return f'{self.image_url}'
-
 
 class Product(models.Model):
     slug = models.SlugField(max_length=50, unique=True)
@@ -68,10 +61,17 @@ class Product(models.Model):
     brand = models.ForeignKey('Brand', null=True, blank=True, on_delete=models.SET_NULL)
     auto_brand = models.ForeignKey('Catalogue', null=True, blank=True, on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254, null=True, blank=True)
-    price = models.DecimalField(max_digits=6, decimal_places=2)
-    image = models.ManyToManyField(Image, blank=True)
+    image = models.ImageField(
+        upload_to='accessories_photo/', blank=True, null=True)
     stock = models.PositiveSmallIntegerField()
     wish_lists = models.ManyToManyField(User, related_name='wish_list', blank=True)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+
+    def image_link(self):
+        if self.image:
+            return self.image.url
+        else:
+            return '/media/accessories_photo/no_image.jpg'
 
     def __str__(self):
         return f'{self.name}'

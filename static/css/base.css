@@ -99,6 +99,10 @@ h6 {
     color: var(--color-secondary);
 }
 
+.padding-t {
+    padding-top: 1.5rem !important;
+}
+
 .dropdown-toggle:hover,
 .nav-link:hover,
 footer a:hover,
@@ -212,5 +216,9 @@ footer i:hover {
 @media screen and (max-width: 767px) {
     .card {
         max-width: 100%;
+    }
+
+    .padding-t {
+        padding-top: 0 !important;
     }
 }

@@ -22,15 +22,9 @@
 						<div class="col-md-6 col-lg-4 col-xl-3">
 							<div class="card product-card mb-3">
 								<a href="{% url 'product_detail' product.id %}">
-									{% if product.image %}
-										<img src="{% static 'images/bag.jpg' %}"
-											class="card-img-top pt-3 px-3"
-											alt="{{ product.name }}"/>
-									{% else %}
-										<img src="{% static 'images/bag.jpg' %}"
-											class="card-img-top p-3"
-											alt="{{ product.name }}"/>
-									{% endif %}
+                  <img src="{{ product.image_link }}"
+                    class="card-img-top pt-3 px-3"
+                    alt="{{ product.name }}"/>
 								</a>
 								<div class="card-body">
 									<p class="card-title text-uppercase">{{ product.brand }}</p>
