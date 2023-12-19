@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from car_gadget_world.settings import AWS_STORAGE_BUCKET_NAME
+import os
 
 class Category(models.Model):
     name = models.CharField(max_length=254)
@@ -67,11 +68,23 @@ class Product(models.Model):
     wish_lists = models.ManyToManyField(User, related_name='wish_list', blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
 
-    def image_link(self):
+    '''def image_link(self):
         if self.image:
             return self.image.url
         else:
             return '/media/accessories_photo/no_image.jpg'
+    '''
+    def image_link(self):
+        if self.image:
+            return self.image.url
+        else:
+            if 'USE_AWS' in os.environ:
+                return (f'https://{AWS_STORAGE_BUCKET_NAME}.'
+                        f's3.amazonaws.com/media/'
+                        f'accessories_photo/no_image.jpg')
+            else:
+                return '/media/accessories_photo/no_image.jpg'
 
     def __str__(self):
         return f'{self.name}'
+
