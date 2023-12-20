@@ -4,8 +4,8 @@ from car_gadget_world.settings import AWS_STORAGE_BUCKET_NAME
 import os
 
 class Category(models.Model):
-    name = models.CharField(max_length=254)
-    friendly_name = models.CharField(max_length=254, null=True, blank=True)
+    name = models.CharField(max_length=25)
+    display_name = models.CharField(max_length=25, null=True, blank=True)
 
     class Meta(object):
         verbose_name_plural = 'Categories'
@@ -13,19 +13,19 @@ class Category(models.Model):
     def __str__(self):
         return f'{self.name}'
 
-    def get_friendly_name(self):
-        return f'{self.friendly_name}'
+    def get_display_name(self):
+        return f'{self.display_name}'
 
 
 class Brand(models.Model):
-    name = models.CharField(max_length=254)
-    friendly_name = models.CharField(max_length=254, null=True, blank=True)
+    name = models.CharField(max_length=30)
+    display_name = models.CharField(max_length=30, null=True, blank=True)
 
     def __str__(self):
         return f'{self.name}'
 
-    def get_friendly_name(self):
-        return self.friendly_name
+    def get_display_name(self):
+        return self.display_name
 
 
 class Catalogue(models.Model):
@@ -38,7 +38,7 @@ class Catalogue(models.Model):
         ('Volkswagen', 'Volkswagen'),
         ('Mercedes', 'Mercedes'),
         ('Toyota', 'Toyota'),
-        ('Hyundai', 'Hyundai'),
+        ('Mitsubishi', 'Mitsubishi'),
         ('Citroen', 'Citroen'),
     )
 
@@ -68,12 +68,6 @@ class Product(models.Model):
     wish_lists = models.ManyToManyField(User, related_name='wish_list', blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
 
-    '''def image_link(self):
-        if self.image:
-            return self.image.url
-        else:
-            return '/media/accessories_photo/no_image.jpg'
-    '''
     def image_link(self):
         if self.image:
             return self.image.url

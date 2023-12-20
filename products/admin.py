@@ -4,7 +4,7 @@ from .models import Category, Brand, Catalogue, Product
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
-        'name', 'sku', 'brand', 'category', 'auto_brand', 'stock', 'price'
+        'name', 'sku', 'brand', 'category', 'auto_brand', 'stock', 'image', 'price'
     )
 
     ordering = ("sku",)

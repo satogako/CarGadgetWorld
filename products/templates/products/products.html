@@ -27,11 +27,20 @@
                     alt="{{ product.name }}"/>
 								</a>
 								<div class="card-body">
-									<p class="card-title text-uppercase">{{ product.brand }}</p>
+									<p class="card-title text-uppercase">{{ product.brand.get_display_name }}</p>
 									<a href="{% url 'product_detail' product.id %}" class="text-reset text-decor">
 										<h3 class="card-text fs-5">{{ product.name }}</h3>
 									</a>
 									<p class="text-muted">SKU: {{ product.sku }}</p>
+                  {% if product.auto_brand %}
+                    <p class="text-muted">
+                      For cars: {{ product.auto_brand }}.
+                    </p>
+                  {% else %}
+                    <p class="text-muted">
+                      For all car brands.
+                    </p>
+                  {% endif %}
 									<div>
 										<p class="bg-price-color">price <span class="fs-3 dark-text-color">{{ product.price }}</span> €</p>
 									</div>
