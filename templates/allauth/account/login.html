@@ -11,7 +11,9 @@
       <nav style="--bs-breadcrumb-divider: '→';" aria-label="breadcrumb">
         <ol class="breadcrumb pt-1">
           <li class="breadcrumb-item align-middle">Products</li>
-          <li class="breadcrumb-item dark-text-color" aria-current="page">Sign In</li>
+          <li class="breadcrumb-item dark-text-color" aria-current="page">
+            Sign In
+          </li>
         </ol>
       </nav>
     </div>
@@ -30,22 +32,26 @@
           <div class="row">
             <div class="card-body">
               <h2>{% trans "Sign In" %}</h2>
-              <p>{% blocktrans %}If you have not created an account yet, then please
-              <a href="{{ signup_url }}" class="text-reset text-click">
-                sign up
-              </a> first.{% endblocktrans %}</p>
+              <p>{% blocktrans %}
+                If you have not created an account yet, then please
+                <a href="{{ signup_url }}" class="text-reset text-click">
+                  sign up
+                </a> first.{% endblocktrans %}
+              </p>
               <form class="login" method="POST" action="{% url 'account_login' %}">
                 {% csrf_token %}
                 {{ form|crispy }}
                 {% if redirect_field_value %}
-                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                <input type="hidden" name="{{ redirect_field_name }}" 
+                  value="{{ redirect_field_value }}"
+                />
                 {% endif %}
-                <a class="btn btn-outline-secondary btn-sm btn-width-min20 me-2 mt-2 mt-sm-0" 
+                <a class="btn btn-outline-secondary btn-sm me-2 mt-2 mt-sm-0" 
                   href="{% url 'account_reset_password' %}">
                   {% trans "Forgot Password?" %}
                 </a>
                 <button 
-                  class="primaryAction btn btn-color btn-sm btn-width-min50 mt-2 mt-sm-0" 
+                  class="primaryAction btn btn-color btn-sm mt-2 mt-sm-0" 
                   type="submit">
                     {% trans "Sign In" %}
                 </button>
