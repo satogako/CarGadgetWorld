@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+
 {% block page_header %}
 	<div class="container">
 		<div class="row">
@@ -7,14 +8,27 @@
 		</div>
 	</div>
 {% endblock %}
+
+{% block location %}
+<div class="container-fluid mb-2">
+  <div class="row">
+    <div class="col-12">
+      <nav style="--bs-breadcrumb-divider: '→';" aria-label="breadcrumb">
+        <ol class="breadcrumb pt-1">
+          <li class="breadcrumb-item align-middle">Home</li>
+          <li class="breadcrumb-item align-middle">Products</li>
+          <li class="breadcrumb-item dark-text-color" aria-current="page">
+            Product Details
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
 {% block content %}
 	<div class="container-fluid">
-		<div class="row">
-			<div class="col">
-				<h2>Products</h2>
-				<hr>
-			</div>
-		</div>
 		<div class="row px-5">
 			<div class="col">
         <div class="card product-card mb-3">
