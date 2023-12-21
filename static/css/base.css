@@ -34,6 +34,10 @@ h6 {
     color: var(--color-header);
 }
 
+ol {
+    margin-bottom: 0 !important;
+}
+
 .dark-text-color {
     color: var(--color-header);
 }
@@ -93,10 +97,11 @@ h6 {
     text-decoration: underline;
 }
 
+.text-click:hover,
 .btn-search:hover,
 .navbar-brand:hover,
 .navbar-brand:focus {
-    color: var(--color-secondary);
+    color: var(--color-secondary) !important;
 }
 
 .padding-t {
@@ -192,6 +197,11 @@ footer i:hover {
     border-radius: 4px;
     display: inline-block;
 }
+
+/* Forms */
+.form-w-50 {
+    max-width: 50%;
+} 
 
 
 /* Media Query for Large Screens */

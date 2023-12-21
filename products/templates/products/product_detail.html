@@ -12,55 +12,51 @@
 		<div class="row">
 			<div class="col">
 				<h2>Products</h2>
-				<hr />
+				<hr>
 			</div>
 		</div>
 		<div class="row px-5">
 			<div class="col">
-				<div class="row">
-						<div class="col-12">
-							<div class="card product-card mb-3">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-md-4"> 
-                      <img src="{{ product.image_link }}"
-                        class="card-img-top p-3"
-                        alt="{{ product.name }}"/>
-                    </div>
-                    <div class="col-md-8 padding-t">
-                      <div class="card-body">
-                        <p class="card-title text-uppercase">{{ product.brand.get_display_name }}</p>
-                        <h3 class="card-text fs-5">{{ product.name }}</h3>
-                        <p class="text-muted">SKU: {{ product.sku }}</p>
-                        <p>{{ product.description }}</p>
-                        {% if product.auto_brand %}
-                          <p class="text-muted">
-                            Suitable for car brand: {{ product.auto_brand }}.
-                          </p>
-                        {% else %}
-                          <p class="text-muted">
-                            Suitable for all car brands.
-                          </p>
-                        {% endif %}
-                        <div>
-                          <p class="bg-price-color">price <span class="fs-3 dark-text-color">{{ product.price }}</span> €</p>
-                        </div>
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                          <a href="#" class="btn btn-outline-secondary btn-sm btn-width-min20">
-                            <i class="fa-solid fa-heart fa-lg"></i>
-                          </a>
-                          <a href="#" class="btn btn-color btn-sm btn-width-min50">
-                            Add to Cart
-                          </a>
-                        </div>
-                      </div>
-                    </div>
+        <div class="card product-card mb-3">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4"> 
+                <img src="{{ product.image_link }}"
+                  class="card-img-top p-3"
+                  alt="{{ product.name }}"/>
+              </div>
+              <div class="col-md-8 padding-t">
+                <div class="card-body">
+                  <p class="card-title text-uppercase">{{ product.brand.get_display_name }}</p>
+                  <h3 class="card-text fs-5">{{ product.name }}</h3>
+                  <p class="text-muted">SKU: {{ product.sku }}</p>
+                  <p>{{ product.description }}</p>
+                  {% if product.auto_brand %}
+                    <p class="text-muted">
+                      Suitable for car brand: {{ product.auto_brand }}.
+                    </p>
+                  {% else %}
+                    <p class="text-muted">
+                      Suitable for all car brands.
+                    </p>
+                  {% endif %}
+                  <div>
+                    <p class="bg-price-color">price <span class="fs-3 dark-text-color">{{ product.price }}</span> €</p>
+                  </div>
+                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a href="#" class="btn btn-outline-secondary btn-sm btn-width-min20">
+                      <i class="fa-solid fa-heart fa-lg"></i>
+                    </a>
+                    <a href="#" class="btn btn-color btn-sm btn-width-min50">
+                      Add to Cart
+                    </a>
                   </div>
                 </div>
-							</div>
-						</div>
-				</div>
-			</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 		</div>
 	</div>
 {% endblock %}
