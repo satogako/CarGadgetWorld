@@ -85,6 +85,10 @@ ol {
     background-color: #1bbc40fd !important;
 }
 
+.z-index {
+    z-index: 2;
+}
+
 .text-white {
     color: var(--color-off-white) !important;
 }

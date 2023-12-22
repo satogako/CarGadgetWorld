@@ -1,7 +1,8 @@
 from django.shortcuts import get_object_or_404, render, reverse
 from django.views import generic
 from django.contrib import messages
-from .models import Product
+from .models import Product, Category
+
 
 class ProductsList(generic.ListView):
     '''
@@ -46,6 +47,38 @@ class ProductsList(generic.ListView):
                 queryset = queryset.order_by('-price')
 
         return queryset
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        category = self.kwargs.get('category')
+        query = self.request.GET.get("search", None)
+
+        sort = self.request.GET.get('sort')
+        order = self.request.GET.get('order')
+
+        if sort == 'name':
+            if order == 'asc':
+                context['sort_selected'] = 'Name (A-Z)'
+            else:
+                context['sort_selected'] = 'Name (Z-A)'
+        elif sort == 'price':
+            if order == 'asc':
+                context['sort_selected'] = 'Price (Low to High)'
+            else:
+                context['sort_selected'] = 'Price (High to Low)'
+        elif sort == 'date_added':
+            if order == 'asc':
+                context['sort_selected'] = 'Oldest First'
+            else:
+                context['sort_selected'] = 'Newest First'
+
+        context['category'] = get_object_or_404(
+            Category, name=category) if category else None
+
+        context['search_results'] = query
+
+        return context
     
 
 def product_detail(request, slug):
