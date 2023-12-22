@@ -1,23 +1,22 @@
-from django.shortcuts import render
 from django.shortcuts import get_object_or_404, render
+from django.views import generic
 from .models import Product
 
 
-def all_products(request):
-    """
-    Display for all products, including sorting and searching
-    """
-    products = Product.objects.all()
+class ProductsList(generic.ListView):
+    '''
+    Displays all products
+    '''
+    model = Product
+    template_name = 'products/products.html'
+    context_object_name = 'products'
+    
 
-    context = {"products": products}
-    return render(request, "products/products.html", context)
+def product_detail(request, slug):
+    ''''
+    Displays detailed information about a single product
+    '''
+    product = get_object_or_404(Product, slug=slug)
 
-
-def product_detail(request, product_id):
-    """
-    Displays more detailed information about a specific product
-    """
-    product = get_object_or_404(Product, pk=product_id)
-
-    context = {"product": product}
-    return render(request, "products/product_detail.html", context)
+    context = {'product': product}
+    return render(request, 'products/product_detail.html', context)
