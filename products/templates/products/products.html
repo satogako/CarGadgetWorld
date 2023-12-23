@@ -15,10 +15,22 @@
     <div class="col-12">
       <nav style="--bs-breadcrumb-divider: '→';" aria-label="breadcrumb">
         <ol class="breadcrumb pt-1">
-          <li class="breadcrumb-item align-middle">Home</li>
+            <li class="breadcrumb-item align-middle">
+              <a href="{% url 'home' %}" class="text-decor text-muted">Home</a>
+            </li>
           {% if category %}
+            <li class="breadcrumb-item align-middle">
+              <a href="{% url 'products' %}" class="text-decor text-muted">
+                All Accessories
+              </a>
+            </li>
             <li class="breadcrumb-item dark-text-color" aria-current="page">
               {{ category.get_display_name }}
+            </li>
+          {% elif auto_brand_name %}
+            <li class="breadcrumb-item align-middle">Catalogue</li>
+            <li class="breadcrumb-item dark-text-color" aria-current="page">
+              {{ auto_brand_name }}
             </li>
           {% else %}
             <li class="breadcrumb-item dark-text-color" aria-current="page">

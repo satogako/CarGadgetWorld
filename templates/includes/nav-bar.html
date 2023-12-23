@@ -97,22 +97,40 @@
             </a>
             <ul class="dropdown-menu">
               <li>
-                <a class="dropdown-item" href="#">Audi accessories</a>
+                <a class="dropdown-item" 
+                  href="{% url 'products_by_brand_auto' brand_auto='Audi' %}">
+                  Audi accessories
+                </a>
               </li>
               <li>
-                <a class="dropdown-item" href="#">Volkswagen accessories</a>
+                <a class="dropdown-item" 
+                  href="{% url 'products_by_brand_auto' brand_auto='Citroen' %}">
+                  Citroen accessories
+                </a>
               </li>
               <li>
-                <a class="dropdown-item" href="#">Mercedes accessories</a>
+                <a class="dropdown-item" 
+                  href="{% url 'products_by_brand_auto' brand_auto='Mercedes' %}">
+                  Mercedes accessories
+                </a>
               </li>
               <li>
-                <a class="dropdown-item" href="#">Toyota accessories</a>
+                <a class="dropdown-item" 
+                  href="{% url 'products_by_brand_auto' brand_auto='Mitsubishi' %}">
+                  Mitsubishi accessories
+                </a>
               </li>
               <li>
-                <a class="dropdown-item" href="#">Hyundai accessories</a>
+                <a class="dropdown-item" 
+                  href="{% url 'products_by_brand_auto' brand_auto='Toyota' %}">
+                  Toyota accessories
+                </a>
               </li>
               <li>
-                <a class="dropdown-item" href="#">Citroen accessories</a>
+                <a class="dropdown-item" 
+                  href="{% url 'products_by_brand_auto' brand_auto='Volkswagen' %}">
+                  Volkswagen  accessories
+                </a>
               </li>
             </ul>
           </li>

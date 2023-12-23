@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, render, reverse
 from django.views import generic
 from django.contrib import messages
-from .models import Product, Category
+from .models import Product, Category, Catalogue
 
 
 class ProductsList(generic.ListView):
@@ -16,6 +16,7 @@ class ProductsList(generic.ListView):
         queryset = super().get_queryset()
 
         category = self.kwargs.get('category')
+        brand_auto = self.kwargs.get('brand_auto')
         query = self.request.GET.get('search', None)
         sort = self.request.GET.get('sort')
         order = self.request.GET.get('order')
@@ -23,6 +24,10 @@ class ProductsList(generic.ListView):
         if category:
             queryset = queryset.filter(
                 category__name=category).distinct()
+        
+        if brand_auto: 
+            queryset = queryset.filter(
+                auto_brand__auto_brand=brand_auto).distinct()
 
         if query:
             queryset = queryset.filter(name__icontains=query
@@ -52,7 +57,9 @@ class ProductsList(generic.ListView):
         context = super().get_context_data(**kwargs)
 
         category = self.kwargs.get('category')
-        query = self.request.GET.get("search", None)
+        auto_brand = self.kwargs.get('brand_auto')
+        
+        query = self.request.GET.get('search', None)
 
         sort = self.request.GET.get('sort')
         order = self.request.GET.get('order')
@@ -72,7 +79,9 @@ class ProductsList(generic.ListView):
                 context['sort_selected'] = 'Oldest First'
             else:
                 context['sort_selected'] = 'Newest First'
-
+        
+        context['auto_brand_name'] = auto_brand
+        
         context['category'] = get_object_or_404(
             Category, name=category) if category else None
 
