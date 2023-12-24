@@ -32,6 +32,11 @@
             <li class="breadcrumb-item dark-text-color" aria-current="page">
               {{ auto_brand_name }}
             </li>
+          {% elif product_brand_name %}
+            <li class="breadcrumb-item align-middle">Brands</li>
+            <li class="breadcrumb-item dark-text-color" aria-current="page">
+              {{ product_brand_name.get_display_name }}
+            </li>
           {% else %}
             <li class="breadcrumb-item dark-text-color" aria-current="page">
               All accessories
