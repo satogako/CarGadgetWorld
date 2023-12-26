@@ -1,275 +1,275 @@
 <nav class="navbar navbar-expand-lg">
-    <div class="container">
-      <a class="navbar-brand" href="{% url 'home' %}">
-        <span class="color-logo-l">C</span>AR 
-        <span class="color-logo-l">G</span>ADGET 
-        <span class="color-logo-l">W</span>ORLD
-      </a>
-      <button class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation">
-        <span class="burger-icon">
-          <i class="fa-solid fa-bars fa-lg"></i>
-        </span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <form class="d-flex mx-auto" role="search" method="get" action="">
-          <div class="input-group">
-            <input class="form-control search-box"
-                   type="search"
-                   placeholder="Search for accessory"
-                   name="search"
-                   aria-label="Search for accessory"/>
-            <button class="btn btn-search"
-                    type="submit"
-                    aria-label="Search">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-          </div>
-        </form>
-        <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle"
-               href="#"
-               role="button"
-               data-bs-toggle="dropdown"
-               aria-expanded="false">All Accessories</a>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="{% url 'products' %}">All Accessories</a>
-              </li>
-              <li><hr class="dropdown-divider"></li>
-              <li>
-                <a class="dropdown-item" 
-                  href="{% url 'products_by_category' category='usb_chargers' %}">
-                    USB chargers
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" 
-                  href="{% url 'products_by_category' category='vacuum_cleaners' %}">
-                    Vacuum cleaners
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" 
-                  href="{% url 'products_by_category' category='air_fresheners' %}">
-                    Air fresheners
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" 
-                  href="{% url 'products_by_category' category='keychains' %}">
-                    Keychains
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" 
-                  href="{% url 'products_by_category' category='phone_holders' %}">
-                    Phone Holders
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" 
-                  href="{% url 'products_by_category' category='organizers' %}">
-                    Organizers
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" 
-                  href="{% url 'products_by_category' category='pillows' %}">
-                    Pillows
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle"
-               href="#"
-               role="button"
-               data-bs-toggle="dropdown"
-               aria-expanded="false">
-               Catalogue
-            </a>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" 
-                  href="{% url 'products_by_brand_auto' brand_auto='Audi' %}">
-                  Audi accessories
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" 
-                  href="{% url 'products_by_brand_auto' brand_auto='Citroen' %}">
-                  Citroen accessories
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" 
-                  href="{% url 'products_by_brand_auto' brand_auto='Mercedes' %}">
-                  Mercedes accessories
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" 
-                  href="{% url 'products_by_brand_auto' brand_auto='Mitsubishi' %}">
-                  Mitsubishi accessories
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" 
-                  href="{% url 'products_by_brand_auto' brand_auto='Toyota' %}">
-                  Toyota accessories
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" 
-                  href="{% url 'products_by_brand_auto' brand_auto='Volkswagen' %}">
-                  Volkswagen  accessories
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle"
-               href="#"
-               role="button"
-               data-bs-toggle="dropdown"
-               aria-expanded="false">
-               Brands
-            </a>
-            <ul class="dropdown-menu">
-              <li><span class="ms-3">Mfrs of accessories:</span><hr class="dropdown-divider"></li>
-              <li>
-                <a class="dropdown-item" 
-                  href="{% url 'products_by_product_brand' product_brand='aroma_car' %}">
-                  Aroma Car
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" 
-                  href="{% url 'products_by_product_brand' product_brand='auto_techteile' %}">
-                  Auto Techteile
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" 
-                  href="{% url 'products_by_product_brand' product_brand='baseus' %}">
-                  Baseus
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" 
-                  href="{% url 'products_by_product_brand' product_brand='black_plus_decker' %}">
-                  Black+Decker
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" 
-                  href="{% url 'products_by_product_brand' product_brand='kerdis' %}">
-                  Kerdis
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" 
-                  href="{% url 'products_by_product_brand' product_brand='mitsubishi' %}">
-                  Mitsubishi
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" 
-                  href="{% url 'products_by_product_brand' product_brand='poputchik' %}">
-                  Poputchik
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" 
-                  href="{% url 'products_by_product_brand' product_brand='statuscase' %}">
-                  StatusCASE
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" 
-                  href="{% url 'products_by_product_brand' product_brand='toyota' %}">
-                  Toyota
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" 
-                  href="{% url 'products_by_product_brand' product_brand='mitsubishi' %}">
-                  Mitsubishi
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" 
-                  href="{% url 'products_by_product_brand' product_brand='vag' %}">
-                  VAG
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" 
-                  href="{% url 'products_by_product_brand' product_brand='voin' %}">
-                  VOIN
-                </a>
-              </li>
-            </ul>
-          </li>
-          {% if user.is_authenticated %}
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle"
-                 href="#"
-                 role="button"
-                 data-bs-toggle="dropdown"
-                 aria-expanded="false">
-                {{ user.username }}
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'home' %}">
+      <span class="color-logo-l">C</span>AR 
+      <span class="color-logo-l">G</span>ADGET 
+      <span class="color-logo-l">W</span>ORLD
+    </a>
+    <button class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="burger-icon">
+        <i class="fa-solid fa-bars fa-lg"></i>
+      </span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <form class="d-flex mx-auto" role="search" method="get" action="{% url 'products' %}">
+        <div class="input-group">
+          <input class="form-control search-box"
+                  type="search"
+                  placeholder="Search for accessory"
+                  name="search"
+                  aria-label="Search for accessory"/>
+          <button class="btn btn-search"
+                  type="submit"
+                  aria-label="Search">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </form>
+      <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false">All Accessories</a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="{% url 'products' %}">All Accessories</a>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+              <a class="dropdown-item" 
+                href="{% url 'products_by_category' category='usb_chargers' %}">
+                  USB chargers
               </a>
-              <ul class="dropdown-menu dropdown-menu-end">
-                <li>
-                  <a class="dropdown-item" href="">Orders</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="">My Account</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="">Wishlist (0)</a>
-                </li>
-                <li>
-                  <hr class="dropdown-divider" />
-                </li>
-                {% if user.is_staff %}
-                  <li>
-                    <a class="dropdown-item" href="#">Manage Products</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="">Manage Orders</a>
-                  </li>
-                {% endif %}
-                <li>
-                  <hr class="dropdown-divider" />
-                </li>
-                <li>
-                  <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
-                </li>
-              </ul>
             </li>
-          {% else %}
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+            <li>
+              <a class="dropdown-item" 
+                href="{% url 'products_by_category' category='vacuum_cleaners' %}">
+                  Vacuum cleaners
+              </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+            <li>
+              <a class="dropdown-item" 
+                href="{% url 'products_by_category' category='air_fresheners' %}">
+                  Air fresheners
+              </a>
             </li>
-          {% endif %}
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="fa-solid fa-cart-shopping"></i> 0,00&#8364  
+            <li>
+              <a class="dropdown-item" 
+                href="{% url 'products_by_category' category='keychains' %}">
+                  Keychains
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" 
+                href="{% url 'products_by_category' category='phone_holders' %}">
+                  Phone Holders
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" 
+                href="{% url 'products_by_category' category='organizers' %}">
+                  Organizers
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" 
+                href="{% url 'products_by_category' category='pillows' %}">
+                  Pillows
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Catalogue
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" 
+                href="{% url 'products_by_brand_auto' brand_auto='Audi' %}">
+                Audi accessories
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" 
+                href="{% url 'products_by_brand_auto' brand_auto='Citroen' %}">
+                Citroen accessories
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" 
+                href="{% url 'products_by_brand_auto' brand_auto='Mercedes' %}">
+                Mercedes accessories
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" 
+                href="{% url 'products_by_brand_auto' brand_auto='Mitsubishi' %}">
+                Mitsubishi accessories
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" 
+                href="{% url 'products_by_brand_auto' brand_auto='Toyota' %}">
+                Toyota accessories
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" 
+                href="{% url 'products_by_brand_auto' brand_auto='Volkswagen' %}">
+                Volkswagen  accessories
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Brands
+          </a>
+          <ul class="dropdown-menu">
+            <li><span class="ms-3">Mfrs of accessories:</span><hr class="dropdown-divider"></li>
+            <li>
+              <a class="dropdown-item" 
+                href="{% url 'products_by_product_brand' product_brand='aroma_car' %}">
+                Aroma Car
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" 
+                href="{% url 'products_by_product_brand' product_brand='auto_techteile' %}">
+                Auto Techteile
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" 
+                href="{% url 'products_by_product_brand' product_brand='baseus' %}">
+                Baseus
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" 
+                href="{% url 'products_by_product_brand' product_brand='black_plus_decker' %}">
+                Black+Decker
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" 
+                href="{% url 'products_by_product_brand' product_brand='kerdis' %}">
+                Kerdis
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" 
+                href="{% url 'products_by_product_brand' product_brand='mitsubishi' %}">
+                Mitsubishi
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" 
+                href="{% url 'products_by_product_brand' product_brand='poputchik' %}">
+                Poputchik
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" 
+                href="{% url 'products_by_product_brand' product_brand='statuscase' %}">
+                StatusCASE
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" 
+                href="{% url 'products_by_product_brand' product_brand='toyota' %}">
+                Toyota
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" 
+                href="{% url 'products_by_product_brand' product_brand='mitsubishi' %}">
+                Mitsubishi
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" 
+                href="{% url 'products_by_product_brand' product_brand='vag' %}">
+                VAG
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" 
+                href="{% url 'products_by_product_brand' product_brand='voin' %}">
+                VOIN
+              </a>
+            </li>
+          </ul>
+        </li>
+        {% if user.is_authenticated %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
+              {{ user.username }}
             </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li>
+                <a class="dropdown-item" href="">Orders</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="">My Account</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="">Wishlist (0)</a>
+              </li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              {% if user.is_staff %}
+                <li>
+                  <a class="dropdown-item" href="#">Manage Products</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="">Manage Orders</a>
+                </li>
+              {% endif %}
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
+              </li>
+            </ul>
           </li>
-        </ul>
-      </div>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+          </li>
+        {% endif %}
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fa-solid fa-cart-shopping"></i> 0,00&#8364  
+          </a>
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
