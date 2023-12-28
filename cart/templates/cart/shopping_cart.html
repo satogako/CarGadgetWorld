@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block location %}
+<div class="container-fluid mb-2">
+  <div class="row">
+    <div class="col-12">
+      <nav style="--bs-breadcrumb-divider: '→';" aria-label="breadcrumb">
+        <ol class="breadcrumb pt-1">
+          <li class="breadcrumb-item align-middle">
+            <a href="{% url 'home' %}" class="text-decor text-muted">Home</a>
+          </li>
+          <li class="breadcrumb-item dark-text-color" aria-current="page">
+            Shopping Cart
+          </li> 
+        </ol>
+      </nav>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="container-fluid">
+    <div class="row px-1 px-md-5">
+      <div class="col">
+        <div class="card product-card mb-3">
+          <div class="container">
+            <div class="row">
+              <div class="cart-body py-3">
+                <h2>Shopping Cart</h2>
+                {% if cart_item %}
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th class="d-none d-md-table-cell">Image</th>
+                        <th scope="col">Product</th>
+                        <th scope="col" class="d-none d-md-table-cell">Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Subtotal</th>
+                        <th scope="col">Remove</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                        <tr>
+                          <th class= "d-none d-md-table-cell">image product</th>
+                          <th scope="row">product</th>
+                          <td class="d-none d-md-table-cell">0.00 &euro;</td>
+                          <td>quantity</td>
+                          <td>subtotal 0.00 &euro;</td>
+                          <td>X</td>
+                        </tr>
+                      
+                        <tr>
+                          
+                          <th scope="row" class="d-none d-md-table-cell" colspan="4">Order Total</th>
+                          <th scope="row" class="d-md-none" colspan="3">Order Total</th>
+                          
+                          <td>Total 0.00 &euro;</td>
+                        </tr>
+                    </tbody>
+                  </table>
+                  <a href="{% url 'products' %}" class="btn btn-outline-secondary">Continue Shopping</a>
+                  <a href="#" class="btn btn-color float-end">Checkout</a>
+                {% else %}  
+                  <p class="mt-2">You have no items in your cart.</p>
+                  <a href="{% url 'products' %}" class="btn btn-outline-secondary">Browse Products</a>
+                {% endif %}
+              </div>
+            </div>
+          </div>  
+        </div>
+      </div>
+    </div>
+  </div>          
+{% endblock %}
