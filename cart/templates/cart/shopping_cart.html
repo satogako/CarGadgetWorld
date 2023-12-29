@@ -30,8 +30,7 @@
               <div class="cart-body py-3">
                 <h2>Shopping Cart</h2>
                 {% if cart_items %}
-                  {{cart_items}}
-                  <table class="table table-striped">
+                  <table class="table align-middle">
                     <thead>
                       <tr>
                         <th class="d-none d-md-table-cell">Image</th>
@@ -43,22 +42,27 @@
                       </tr>
                     </thead>
                     <tbody>
-                      
+                      {% for item in cart_items %}
                         <tr>
-                          <th class= "d-none d-md-table-cell">image product</th>
-                          <th scope="row">product</th>
-                          <td class="d-none d-md-table-cell">0.00 &euro;</td>
-                          <td>quantity</td>
-                          <td>subtotal 0.00 &euro;</td>
+                          <th class= "d-none d-md-table-cell w-10">
+                            <img class="img-fluid" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                          </th>
+                          <th>
+                            <h3 class="fs-5">{{ item.product.name }}</h>
+                            <p class="text-muted fs-6">{{ item.product.sku|upper }}</p>
+                          </th>
+                          <td class="d-none d-md-table-cell">{{ item.product.price }} &euro;</td>
+                          <td>{{ item.quantity }}</td>
+                          <td>{{ item.product.price }} &euro;</td>
                           <td>X</td>
                         </tr>
-                      
+                      {% endfor %}
                         <tr>
                           
                           <th scope="row" class="d-none d-md-table-cell" colspan="4">Order Total</th>
                           <th scope="row" class="d-md-none" colspan="3">Order Total</th>
                           
-                          <td>Total 0.00 &euro;</td>
+                          <td>{{ total }} &euro;</td>
                         </tr>
                     </tbody>
                   </table>
