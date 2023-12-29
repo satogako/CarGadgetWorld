@@ -63,6 +63,10 @@ ol {
     color: var(--color-red);
 }
 
+.cart-color {
+    color: var(--button-color) !important;
+}
+
 .btn-search {
     border-color: var(--color-off-white) !important;
 }
@@ -103,6 +107,7 @@ ol {
 
 .text-click:hover,
 .btn-search:hover,
+.cart-color:hover,
 .navbar-brand:hover,
 .navbar-brand:focus {
     color: var(--color-secondary) !important;

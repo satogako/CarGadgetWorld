@@ -265,9 +265,19 @@
           </li>
         {% endif %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'shopping_cart' %}">
-            <i class="fa-solid fa-cart-shopping"></i> 0,00&#8364  
-          </a>
+          {% if grand_total %}
+            <a class="nav-link cart-color" href="{% url 'shopping_cart' %}">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <strong>
+                {{grand_total|floatformat:2}} &#8364
+              </strong>
+            </a>
+            {% else %}
+              <a class="nav-link" href="{% url 'shopping_cart' %}">
+                <i class="fa-solid fa-cart-shopping"></i>
+              </a> 
+            {% endif %} 
+          
         </li>
       </ul>
     </div>
