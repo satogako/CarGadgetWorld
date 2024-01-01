@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
 
 
 def view_cart(request):
@@ -22,3 +23,22 @@ def add_to_cart(request, item_id):
     request.session['cart'] = cart
     return redirect(redirect_url)
 
+  
+def adjust_cart(request, item_id):
+    '''Adjust the quantity of the specified product 
+        to the specified amount
+    '''
+    try:
+        quantity = int(request.POST.get('quantity'))
+    except ValueError:
+        quantity = 1
+
+    cart = request.session.get('cart', {})
+  
+    if quantity > 0 and quantity < 100:
+            cart[item_id] = quantity
+    else:
+         cart[item_id] = 1
+    
+    request.session['cart'] = cart
+    return redirect(reverse('shopping_cart'))

@@ -52,16 +52,30 @@
                             <p class="text-muted fs-6">{{ item.product.sku|upper }}</p>
                           </th>
                           <td class="d-none d-md-table-cell">{{ item.product.price }} &euro;</td>
-                          <td>{{ item.quantity }}</td>
+                          <td>
+                            <form class="update-form" id="form_{{ item.item_id }}" action="{% url 'adjust_cart' item.item_id %}" method="POST">
+                              {% csrf_token %}
+                              <input type="number" class="form-control qty-input mb-1 rounded-1"
+                                name="quantity" value="{{ item.quantity }}" min="1" max="99">
+                            </form>  
+                            <a class="curs-ponter submit-link text-info">
+                              <small>Update</small>
+                            </a>
+                            
+                          
+                          </td>
                           <td>{{ item.product.price }} &euro;</td>
-                          <td>X</td>
+                          <td>
+                            <a class="curs-ponter remove-item text-danger"
+                            id="remove_{{ item.item_id }}">
+                            <small>X</small>
+                          </a>
+                        </td>
                         </tr>
                       {% endfor %}
-                        <tr>
-                          
+                        <tr> 
                           <th scope="row" class="d-none d-md-table-cell" colspan="4">Order Total</th>
                           <th scope="row" class="d-md-none" colspan="3">Order Total</th>
-                          
                           <td>{{ total }} &euro;</td>
                         </tr>
                     </tbody>
@@ -78,5 +92,13 @@
         </div>
       </div>
     </div>
-  </div>          
+  </div>  
+  <div id="testDiv">Test</div>
+  
+  <script>
+      $('.submit-link').click(function(e) {
+            var form = $(this).prev('.update-form');
+            form.submit();
+        });
+    </script>
 {% endblock %}
