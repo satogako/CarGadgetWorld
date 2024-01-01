@@ -1,5 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from django.urls import reverse
+from django.contrib import messages
+from products.models import Product
 
 
 def view_cart(request):
@@ -32,6 +34,7 @@ def adjust_cart(request, item_id):
         quantity = int(request.POST.get('quantity'))
     except ValueError:
         quantity = 1
+        messages.error(request, f'The number must be an integer')
 
     cart = request.session.get('cart', {})
   
@@ -39,6 +42,27 @@ def adjust_cart(request, item_id):
             cart[item_id] = quantity
     else:
          cart[item_id] = 1
+         messages.error(
+            request, f'The quantity must be between 1 and 99'
+        )
     
     request.session['cart'] = cart
     return redirect(reverse('shopping_cart'))
+
+
+def remove_from_cart(request, item_id):
+    """Remove the item from the shopping bag"""
+
+    try:
+        product = get_object_or_404(Product, pk=item_id)
+        cart = request.session.get('cart', {})
+
+        cart.pop(item_id)
+        messages.success(request, f'Removed {product.name} from your cart')
+
+        request.session['cart'] = cart
+        return HttpResponse(status=200)
+
+    except Exception as e:
+        messages.error(request, f'Error removing item: {e}')
+        return HttpResponse(status=500)

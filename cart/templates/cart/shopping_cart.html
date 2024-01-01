@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load cart_tools %}
 
 {% block location %}
 <div class="container-fluid mb-2">
@@ -53,30 +54,62 @@
                           </th>
                           <td class="d-none d-md-table-cell">{{ item.product.price }} &euro;</td>
                           <td>
-                            <form class="update-form" id="form_{{ item.item_id }}" action="{% url 'adjust_cart' item.item_id %}" method="POST">
+                            <form class="update-form" action="{% url 'adjust_cart' item.item_id %}" method="POST">
                               {% csrf_token %}
                               <input type="number" class="form-control qty-input mb-1 rounded-1"
                                 name="quantity" value="{{ item.quantity }}" min="1" max="99">
                             </form>  
-                            <a class="curs-ponter submit-link text-info">
+                            <a class="curs-ponter submit-link text-info text-decor">
                               <small>Update</small>
                             </a>
                             
                           
                           </td>
-                          <td>{{ item.product.price }} &euro;</td>
+                          <td>{{ item.product.price | calc_subtotal:item.quantity }} &euro;</td>
                           <td>
-                            <a class="curs-ponter remove-item text-danger"
-                            id="remove_{{ item.item_id }}">
-                            <small>X</small>
+                            <a class="curs-ponter remove-item text-danger text-decor"
+                              id="remove_{{ item.item_id }}">
+                              <small>X</small>
                           </a>
                         </td>
                         </tr>
                       {% endfor %}
                         <tr> 
-                          <th scope="row" class="d-none d-md-table-cell" colspan="4">Order Total</th>
-                          <th scope="row" class="d-md-none" colspan="3">Order Total</th>
-                          <td>{{ total }} &euro;</td>
+                          <th scope="row" class="d-none d-md-table-cell" colspan="4">
+                            <p>Total</p>
+                            <p class="text-muted">
+                              <small>
+                                Delivery 
+                                <span class="ms-3 text-danger fw-normal">
+                                  {% if free_delivery_delta > 0 %}
+                                    To get free shipping, spend an additional 
+                                    <strong>${{ free_delivery_delta }} &euro;</strong>!
+                                  {% endif %}          
+                                </span>
+                              </small>
+                            </p>
+                            <p>Order Total</p>
+                          </th>
+                          <th scope="row" class="d-md-none" colspan="3">
+                            <p>Total</p>
+                            <p class="text-muted">
+                              <small>
+                                Delivery 
+                                <span class="ms-3 text-danger fw-normal">
+                                  {% if free_delivery_delta > 0 %}
+                                    To get free shipping, spend an additional 
+                                    <strong>${{ free_delivery_delta }} &euro;</strong>!
+                                  {% endif %}          
+                                </span>
+                              </small>
+                            </p>
+                            <p>Order Total</p>
+                          </th>
+                          <td>
+                            <p>{{ total | floatformat:2}} &euro;</p>
+                            <p><small>{{ delivery | floatformat:2}} &euro;</small></p>
+                            <p><strong>{{ grand_total | floatformat:2 }} &euro;</strong></p>
+                          </td>
                         </tr>
                     </tbody>
                   </table>
@@ -93,12 +126,29 @@
       </div>
     </div>
   </div>  
-  <div id="testDiv">Test</div>
   
   <script>
-      $('.submit-link').click(function(e) {
-            var form = $(this).prev('.update-form');
-            form.submit();
-        });
-    </script>
+    // Update quantity on click
+    $('.submit-link').click(function(e) {
+          var form = $(this).prev('.update-form');
+          form.submit();
+    });
+
+
+    // Remove item and reload on click
+    $('.remove-item').click(function(e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        
+        var url = `/cart/remove/${itemId}/`;
+        var data = {'csrfmiddlewaretoken': csrfToken};
+
+        $.post(url, data)
+         .done(function() {
+             location.reload();
+         });
+    })
+
+
+  </script>
 {% endblock %}
