@@ -10,13 +10,14 @@ from products.models import Product
 class Purchase(models.Model):
     order_number = models.CharField(max_length=40, null=False, editable=False)
     first_name = models.CharField(max_length=35, null=False, blank=False)
-    full_name = models.CharField(max_length=35, null=False, blank=False)
+    last_name = models.CharField(max_length=35, null=False, blank=False)
     email_addres = models.EmailField(max_length=254, null=False, blank=False)
     phone = models.CharField(max_length=25, null=False, blank=False)
     country = models.CharField(max_length=35, null=False, blank=False)
     full_address = models.CharField(max_length=254, null=False, blank=False)
     town_city = models.CharField(max_length=35, null=False, blank=False)
     post_code = models.CharField(max_length=20, null=True, blank=True)
+    order_notes = models.TextField(null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
     delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
     order_total = models.DecimalField(max_digits=8, decimal_places=2, null=False, default=0)
@@ -49,7 +50,7 @@ class Purchase(models.Model):
         if not self.order_number:
             self.order_number = self._generate_order_number()
         super().save(*args, **kwargs)
-
+        
     def __str__(self):
         return self.order_number
 
