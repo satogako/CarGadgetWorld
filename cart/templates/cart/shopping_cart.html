@@ -25,7 +25,7 @@
   <div class="container-fluid">
     <div class="row px-1 px-md-5">
       <div class="col">
-        <div class="card product-card mb-3">
+        <div class="card mb-3">
           <div class="container">
             <div class="row">
               <div class="cart-body py-3">
@@ -46,7 +46,7 @@
                       {% for item in cart_items %}
                         <tr>
                           <th class= "d-none d-md-table-cell w-10">
-                            <img class="img-fluid" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                            <img class="img-fluid" src="{{ item.product.image_link }}" alt="{{ item.product.name }}">
                           </th>
                           <th>
                             <h3 class="fs-5">{{ item.product.name }}</h>
@@ -114,14 +114,14 @@
                     </tbody>
                   </table>
                   <a href="{% url 'products' %}" class="btn btn-outline-secondary">Continue Shopping</a>
-                  <a href="#" class="btn btn-color float-end">Checkout</a>
+                  <a href="{% url 'checkout' %}" class="btn btn-color float-end">Checkout</a>
                 {% else %}  
                   <p class="mt-2">You have no items in your cart.</p>
                   <a href="{% url 'products' %}" class="btn btn-outline-secondary">Browse Products</a>
                 {% endif %}
               </div>
             </div>
-          </div>  
+          </div> 
         </div>
       </div>
     </div>
@@ -148,7 +148,5 @@
              location.reload();
          });
     })
-
-
   </script>
 {% endblock %}

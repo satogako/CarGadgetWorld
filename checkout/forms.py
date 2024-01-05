@@ -6,7 +6,7 @@ class PurchaseForm(forms.ModelForm):
     class Meta:
         model = Purchase
         fields = ('first_name', 'last_name', 'phone', 'email_addres', 
-                  'country', 'full_addres', 'town_city', 'post_code', 
+                  'country', 'full_address', 'town_city', 'post_code', 
                   'order_notes',)
 
     def __init__(self, *args, **kwargs):
@@ -20,10 +20,10 @@ class PurchaseForm(forms.ModelForm):
             'last_name': 'Last Name',
             'phone': 'Phone Number',
             'email_addres': 'Email Address',
-            'country': 'Country / Region ',
-            'full_addres': 'Full address (street, house number, '
+            'country': 'Country / Region',
+            'full_address': 'Full address (street, house number, '
                             'apartment number)',
-            'town_city': 'Town / City ',
+            'town_city': 'Town / City',
             'post_code': 'Post Code',
             'order_notes': 'Notes about your order, e.g. special notes for '
                             'delivery (optional)',
@@ -35,6 +35,6 @@ class PurchaseForm(forms.ModelForm):
                 placeholder = f'{placeholders[field]} *'
             else:
                 placeholder = placeholders[field]
-                self.fields[field].widget.attrs['placeholder'] = placeholder
+            self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False

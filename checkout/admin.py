@@ -16,7 +16,7 @@ class PurchaseAdmin(admin.ModelAdmin):
 
     fields = ('order_number', 'date', 'first_name', 'last_name',
               'email_addres', 'phone', 'country',
-              'full_address', 'town_city', 'post_code',
+              'full_address', 'town_city', 'post_code', 'order_notes',
               'delivery_cost',
               'order_total', 'grand_total',)
 
