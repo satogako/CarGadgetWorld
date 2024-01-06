@@ -12,38 +12,59 @@ def view_cart(request):
 
 def add_to_cart(request, item_id):
     """ Add a quantity of the specified product to the shopping bag """
+    if request.user.is_authenticated:
+        product = get_object_or_404(Product, pk=item_id)
+        quantity = int(request.POST.get('quantity'))
+        redirect_url = request.POST.get('redirect_url')
+        cart = request.session.get('cart', {})
 
-    quantity = int(request.POST.get('quantity'))
-    redirect_url = request.POST.get('redirect_url')
-    cart = request.session.get('cart', {})
+        if item_id in list(cart.keys()):
+            cart[item_id] += quantity
+            messages.success(
+                request, f'Updated {product.name} quantity to {cart[item_id]}'
+            )
+        else:
+            cart[item_id] = quantity
+            messages.success(request, f'Added {product.name} to your cart')
 
-    if item_id in list(cart.keys()):
-        cart[item_id] += quantity
+        request.session['cart'] = cart
+        return redirect(redirect_url)
     else:
-        cart[item_id] = quantity
-
-    request.session['cart'] = cart
-    return redirect(redirect_url)
-
+        messages.info(
+            request, 'Please signup or login to unlock the ability '
+            'to make purchases.'
+        )
+        return redirect('account_signup')
   
 def adjust_cart(request, item_id):
     '''Adjust the quantity of the specified product 
         to the specified amount
     '''
+    product = get_object_or_404(Product, pk=item_id)
+
     try:
         quantity = int(request.POST.get('quantity'))
     except ValueError:
         quantity = 1
-        messages.error(request, f'The number must be an integer')
+        messages.warning(request, f'The quantity must be an integer')
 
     cart = request.session.get('cart', {})
   
-    if quantity > 0 and quantity < 100:
+    if quantity < 1:
+        cart[item_id] = 1
+        messages.warning(
+            request, f"The quantity can't be less than 1"
+        )
+   
+    elif quantity < 100:
             cart[item_id] = quantity
+            messages.success(
+            request, f'Updated {product.name} quantity to {cart[item_id]}'
+            )
     else:
          cart[item_id] = 1
-         messages.error(
-            request, f'The quantity must be between 1 and 99'
+         messages.info(
+            request, f'The quantity must be less 100'
         )
     
     request.session['cart'] = cart
