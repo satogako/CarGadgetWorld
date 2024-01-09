@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = ['car-gadget-world-605f69b77cdd.herokuapp.com',
-                 os.environ.get('LOCAL_HOST', '127.0.0.1:8000')]
+                 os.environ.get('LOCAL_HOST')]
 
 
 # Application definition
@@ -198,6 +198,7 @@ STANDARD_DELIVERY_PERCENTAGE = 15
 STRIPE_CURRENCY = 'eur'
 STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')
+STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET', '')
 
 AWS_STORAGE_BUCKET_NAME = 'car-gadget-world-605f69b77cdd'
 
