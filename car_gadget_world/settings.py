@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = ['car-gadget-world-605f69b77cdd.herokuapp.com',
-                 os.environ.get('LOCAL_HOST')]
+                 os.environ.get('LOCAL_HOST', '127.0.0.1:8000')]
 
 
 # Application definition
@@ -192,8 +192,12 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# Stripe
 FREE_DELIVERY_THRESHOLD = 40
 STANDARD_DELIVERY_PERCENTAGE = 15
+STRIPE_CURRENCY = 'eur'
+STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')
 
 AWS_STORAGE_BUCKET_NAME = 'car-gadget-world-605f69b77cdd'
 

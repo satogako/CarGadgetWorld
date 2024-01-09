@@ -101,15 +101,8 @@
                     {{ order_form.post_code | as_crispy_field }}
                     {{ order_form.order_notes | as_crispy_field }}
                     <div class="form-check form-check-inline float-right mr-0">
-                      {% if user.is_authenticated %}
                       <label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
                       <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
-                      {% else %}
-                      <label class="form-check-label" for="id-save-info">
-                        <a class="text-reset text-click" href="{% url 'account_signup' %}">Create an account</a> or
-                        <a class="text-reset text-click" href="{% url 'account_login' %}">login</a> to save this information
-                      </label>
-                      {% endif %}
                     </div>
                   </fieldset>
                   <fieldset class="px-3">
