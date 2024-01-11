@@ -32,14 +32,14 @@ def checkout(request):
         order_form = PurchaseForm(form_data)
         if order_form.is_valid():
             order = order_form.save()
-            for item_id, quantity in cart.items(): #item_id, item_data in cart.items():
+            for item_id, quantity in cart.items():
                 try:
                     product = Product.objects.get(id=item_id)
-                    if isinstance(quantity, int):  #if isinstance(item_data, int):
+                    if isinstance(quantity, int):
                         order_line_item = PurchaseLineItem(
                             order=order,
                             product=product,
-                            quantity=quantity,  #quantity=item_data
+                            quantity=quantity,
                         )
                         order_line_item.save()
                 except Product.DoesNotExist:
@@ -70,7 +70,7 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
-        print(intent)
+        
         order_form = PurchaseForm()
 
     if not stripe_public_key:
