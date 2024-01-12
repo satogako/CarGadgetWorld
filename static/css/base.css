@@ -151,6 +151,10 @@ footer a {
     text-decoration: none;
 }
 
+#div_id_visible_to_customers {
+    display: none;
+  }
+
 
 /* Footer Styles */
 footer {
