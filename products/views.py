@@ -2,6 +2,7 @@ from django.shortcuts import get_object_or_404, render, reverse
 from django.views import generic
 from django.contrib import messages
 from .models import Product, Category, Brand
+from .forms import ProductForm
 
 
 class ProductsList(generic.ListView):
@@ -107,3 +108,14 @@ def product_detail(request, slug):
 
     context = {'product': product}
     return render(request, 'products/product_detail.html', context)
+
+
+def add_product(request):
+    """ Add a product to the store """
+    form = ProductForm()
+    template = 'products/add_product.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)

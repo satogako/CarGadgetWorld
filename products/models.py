@@ -65,7 +65,6 @@ class Product(models.Model):
     image = models.ImageField(
         upload_to='accessories_photo/', blank=True, null=True)
     stock = models.PositiveSmallIntegerField()
-    wish_lists = models.ManyToManyField(User, related_name='wish_list', blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
 
     def image_link(self):

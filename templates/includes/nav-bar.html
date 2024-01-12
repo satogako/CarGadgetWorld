@@ -228,24 +228,9 @@
               {{ user.username }}
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
-              <li>
-                <a class="dropdown-item" href="">Orders</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="">My Account</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="">Wishlist (0)</a>
-              </li>
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
               {% if user.is_staff %}
                 <li>
-                  <a class="dropdown-item" href="#">Manage Products</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="">Manage Orders</a>
+                  <a class="dropdown-item" href="{% url 'add_product' %}">Product Management</a>
                 </li>
               {% endif %}
               <li>
