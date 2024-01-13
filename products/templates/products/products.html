@@ -115,8 +115,15 @@
                     </p>
                   {% endif %}
 									<div>
-										<p class="bg-price-color">price <span class="fs-3 dark-text-color">{{ product.price }}</span> €</p>
+										<p class="bg-price-color">price 
+                      <span class="fs-3 dark-text-color">{{ product.price }}</span> €
+                    </p>
 									</div>
+                  {% if user.is_staff %}
+                    <div>
+                      <a class="text-decoration-none link-primary" href="{% url 'edit_product' product.id %}">Edit</a>
+                    </div>
+                  {% endif %}
 								</div>
 							</div>
 						</div>
