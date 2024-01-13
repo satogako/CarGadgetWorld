@@ -152,7 +152,7 @@ footer a {
 }
 
 #div_id_visible_to_customers {
-    display: none;
+    display: none !important;
   }
 
 
@@ -230,11 +230,12 @@ footer i:hover {
     position: fixed;
     top: 72px;
     right: 15px;
-    z-index: 99999999999;
+    z-index: 99999999999 !important;
 }
 
 .custom-toast {
     overflow: visible;
+    width: fit-content !important;
 }
 
 
