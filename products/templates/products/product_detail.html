@@ -66,6 +66,8 @@
                   {% if user.is_staff %}
                     <div>
                       <a class="text-decoration-none link-primary" href="{% url 'edit_product' product.id %}">Edit</a>
+                      |
+                      <a class="text-decoration-none link-danger" href="{% url 'delete_product' product.id %}">Delete</a>
                     </div>
                   {% endif %}
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
