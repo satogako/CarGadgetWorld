@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: add/
+Disallow: edit/
+Disallow: delete/
+
+Sitemap: https://car-gadget-world-605f69b77cdd.herokuapp.com/sitemap.xml
