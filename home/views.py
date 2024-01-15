@@ -9,7 +9,14 @@ def index(request):
 
 
 def news_letter(request):
-    """
+    '''
     Renders view for the newsletter page
-    """
+    '''
     return render(request, 'home/newsletter.html')
+
+
+def privacy_policy(request):
+    '''
+    Renders view for the privacy policy page
+    '''
+    return render(request, 'home/privacy_policy.html')
