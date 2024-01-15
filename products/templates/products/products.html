@@ -1,14 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_header %}
-	<div class="container">
-		<div class="row">
-			<div class="col"></div>
-		</div>
-	</div>
-{% endblock %}
-
 {% block location %}
 <div class="container-fluid">
   <div class="row">
@@ -61,8 +53,8 @@
                   type="button"
                   id="dropdownSort"
                   data-bs-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false">
+                  aria-expanded="false"
+                  aria-label="Sort accessories" >
                   {% if sort_selected %}
                       {{ sort_selected }}
                   {% else %}

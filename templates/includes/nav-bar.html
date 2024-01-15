@@ -251,7 +251,8 @@
         {% endif %}
         <li class="nav-item">
           {% if grand_total %}
-            <a class="nav-link cart-color" href="{% url 'shopping_cart' %}">
+            <a class="nav-link cart-color" aria-label="Shopping cart"
+              href="{% url 'shopping_cart' %}">
               <i class="fa-solid fa-cart-shopping"></i>
               <strong>
                 {{grand_total|floatformat:2}}&#8364

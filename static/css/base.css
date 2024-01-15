@@ -156,6 +156,15 @@ footer a {
   }
 
 
+.w-10 {
+    width: 10% !important;
+}
+
+.w-60 {
+    width: 60% !important; 
+}
+
+
 /* Footer Styles */
 footer {
     background-color: var(--color-primary);
@@ -220,11 +229,6 @@ footer i:hover {
     max-width: 50%;
 } 
 
-/* Table */
-.w-10 {
-    width: 10% !important;
-}
-
 /* Toasts */
 .message-container {
     position: fixed;
@@ -238,6 +242,16 @@ footer i:hover {
     width: fit-content !important;
 }
 
+/*Mailchimp*/
+#mc_embed_signup { 
+    clear:left;  
+    max-width: 600px;
+}
+
+#mce-EMAIL {
+    border: 1px solid #d7d7d7;
+    border-radius: 4px;
+}
 
 /* Media Query for Large Screens */
 @media screen and (min-width: 1200px) {
