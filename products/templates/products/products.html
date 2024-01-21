@@ -51,15 +51,18 @@
               <div class="dropdown z-index">
                 <a class="btn btn-secondary dropdown-toggle custom-dropdown-button"
                   type="button"
-                  id="dropdownSort"
+                  
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
-                  aria-label="Sort accessories" >
-                  {% if sort_selected %}
-                      {{ sort_selected }}
-                  {% else %}
-                      Sort
-                  {% endif %}
+                  aria-label="Sort menu"
+                  tabindex="0" >
+                    <span id="dropdownSort">
+                      {% if sort_selected %}
+                          {{ sort_selected }}
+                      {% else %}
+                          Sort
+                      {% endif %}
+                    </span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownSort">
                   <a class="dropdown-item"

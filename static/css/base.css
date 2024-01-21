@@ -78,13 +78,15 @@ ol {
     text-transform: uppercase;
 }
 
-.btn-home-color:hover{
+.btn-home-color:hover,
+.btn-home-color:focus {
     background-color: var(--color-black) !important;
     border-color: var(--color-secondary) !important;
     color: var(--color-white) !important;
 }
 
-.btn-color:hover {
+.btn-color:hover,
+.btn-color:focus {
     color: var(--color-white) !important;
     background-color: #1bbc40fd !important;
 }
@@ -105,11 +107,18 @@ ol {
     text-decoration: underline;
 }
 
+.dropdown-toggle:hover,
+.nav-link:hover,
+footer a:hover,
 .text-click:hover,
 .btn-search:hover,
 .cart-color:hover,
 .navbar-brand:hover,
-.navbar-brand:focus {
+.navbar-brand:focus,
+.btn-search:focus,
+.dropdown-toggle:focus,
+.nav-link:focus,
+footer a:focus {
     color: var(--color-secondary) !important;
 }
 
@@ -119,16 +128,6 @@ ol {
 
 .curs-ponter {
     cursor: pointer;
-}
-
-.dropdown-toggle:hover,
-.nav-link:hover,
-footer a:hover,
-.dropdown-toggle:focus,
-.nav-link:focus,
-footer a:focus
-{
-    color: var(--color-secondary);
 }
 
 .dropdown-item:hover {

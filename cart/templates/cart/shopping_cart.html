@@ -59,19 +59,17 @@
                               <input type="number" class="form-control qty-input mb-1 rounded-1"
                                 name="quantity" value="{{ item.quantity }}" min="1" max="99">
                             </form>  
-                            <a class="curs-ponter submit-link text-info text-decor">
-                              <small>Update</small>
+                            <a class="curs-ponter submit-link text-info text-decor" tabindex="0">
+                              <small id="test1">Update</small>
                             </a>
-                            
-                          
                           </td>
                           <td>{{ item.product.price | calc_subtotal:item.quantity }} &euro;</td>
                           <td>
-                            <a class="curs-ponter remove-item text-danger text-decor"
+                            <a class="curs-ponter remove-item text-danger text-decor" tabindex="0"
                               id="remove_{{ item.item_id }}">
                               <small>X</small>
-                          </a>
-                        </td>
+                            </a>
+                          </td>
                         </tr>
                       {% endfor %}
                         <tr> 
@@ -125,28 +123,53 @@
         </div>
       </div>
     </div>
-  </div>  
-  
+  </div>
   <script>
     // Update quantity on click
     $('.submit-link').click(function(e) {
-          var form = $(this).prev('.update-form');
-          form.submit();
+      let form = $(this).prev('.update-form');
+      form.submit();
     });
 
+    // Update quantity using enter key
+    $('.submit-link').on('keyup', function(e) { 
+      let keyName = e.key; 
+      if (keyName === 'Enter') { 
+        let form = $(this).prev('.update-form'); 
+        form.submit(); 
+      } 
+    });
+    
 
-    // Remove item and reload on click
+    // Remove item and reload on click 
     $('.remove-item').click(function(e) {
-        var csrfToken = "{{ csrf_token }}";
-        var itemId = $(this).attr('id').split('remove_')[1];
-        
-        var url = `/cart/remove/${itemId}/`;
-        var data = {'csrfmiddlewaretoken': csrfToken};
+      let csrfToken = "{{ csrf_token }}";
+      let itemId = $(this).attr('id').split('remove_')[1];
+      
+      let url = `/cart/remove/${itemId}/`;
+      let data = {'csrfmiddlewaretoken': csrfToken};
 
-        $.post(url, data)
-         .done(function() {
-             location.reload();
-         });
-    })   
+      $.post(url, data)
+        .done(function() {
+            location.reload();
+        });
+    })
+    
+    // Remove item and reload using enter key
+    $('.remove-item').on('keyup', function(e) { 
+      let keyName = e.key; 
+      if (keyName === 'Enter') { 
+        let csrfToken = "{{ csrf_token }}";
+        let itemId = $(this).attr('id').split('remove_')[1];
+        
+        let url = `/cart/remove/${itemId}/`;
+        let data = {'csrfmiddlewaretoken': csrfToken};
+
+      $.post(url, data)
+        .done(function() {
+            location.reload();
+        }); 
+      } 
+    });
   </script>
 {% endblock %}

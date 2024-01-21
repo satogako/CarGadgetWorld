@@ -24,7 +24,7 @@
                   placeholder="Search for accessory"
                   name="search"
                   aria-label="Search for accessory"/>
-          <button class="btn btn-search"
+          <button class="btn btn-search" tabindex="0"
                   type="submit"
                   aria-label="Search">
                   <i class="fa-solid fa-magnifying-glass"></i>
@@ -253,14 +253,15 @@
           {% if grand_total %}
             <a class="nav-link cart-color" aria-label="Shopping cart"
               href="{% url 'shopping_cart' %}">
-              <i class="fa-solid fa-cart-shopping"></i>
+              <i class="fa-solid fa-cart-shopping" aria-label="Cart"></i>
               <strong>
                 {{grand_total|floatformat:2}}&#8364
               </strong>
             </a>
             {% else %}
-              <a class="nav-link" href="{% url 'shopping_cart' %}">
-                <i class="fa-solid fa-cart-shopping"></i>
+              <a class="nav-link" aria-label="Shopping cart"
+                href="{% url 'shopping_cart' %}">
+                <i class="fa-solid fa-cart-shopping" aria-label="Cart"></i>
               </a> 
             {% endif %} 
           
