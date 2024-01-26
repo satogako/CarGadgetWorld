@@ -115,3 +115,287 @@ I ensured the website is accessible to people with visual impairments by:
   ```
 - Ensured good color contrast between foreground and background colors to aid low vision users. I used a color contrast checker to verify contrast ratios.
 - Ensured all interactive elements are keyboard focusable and the visual focus indicator is clearly visible.
+
+
+# Features
+
+## Existing Features
+
+### Landing Page
+
+The landing page contains an attractive main image and a headline that provides the user with a brief description of what the store sells.
+
+ Below that is a Shop Now button that prompts the user to see items for sale. The button has a green color and, when pressed, takes on the main colors of the image, which gives the client the effect of starting the car. All this additionally encourages the customer to click and go to the store's accessory sales page.
+
+ <details>
+<summary>
+Screenshot of the full landing page on desktop and mobile
+</summary>
+
+![](docs/images/landing_page1.jpg)
+
+![](docs/images/landing_page2.jpg)
+
+![](docs/images/landing_page_mob1.jpg)
+
+![](docs/images/landing_page_mob2.jpg)
+
+</details>
+
+
+### Navbar
+
+The navigation panel contains drop-down menus for viewing accessories: by category, by car brand, and by car accessory manufacturer.
+
+Guests see links to Register or Login.
+
+Logged in users will see their username and a dropdown list containing:
+- Logout
+
+<details>
+<summary>
+Screenshot of dropdown for users
+</summary>
+
+![](docs/images/drop_down_registered_users.jpg)
+
+</details>
+
+
+In addition to these, staff members have access to:
+- Product Management
+- Logout
+
+<details>
+<summary>
+Screenshot of dropdown for staff members
+</summary>
+
+![](docs/images/drop_down_staff_members.jpg)
+
+</details>
+
+
+### Shopping cart
+
+Only registered users can add products to their shopping cart, and the cart total is clearly displayed in the navigation bar on large screens and above. On smaller screens, click on the burger button to see the cart total.
+
+On the cart page, users can change the quantity and if they want to remove the accessory from the cart
+
+<details>
+<summary>
+Screenshots of Shopping Cart on desktop and mobile
+</summary>
+
+![](docs/images/screenshot_desktop_cart.jpg)
+
+![](docs/images/Screenshot_mobile_cart.jpg)
+
+</details>
+
+
+### Breadcrumbs
+
+Breadcrumbs are present on all pages, which help the user to quickly orient himself on which page of the store he is on. Also, with the help of Breadcrumbs, the user can go to previous pages that he has already visited.
+
+<details>
+<summary>
+Screenshot of breadcrumbs on desktop and mobile
+</summary>
+
+![](docs/images/breadcrumbs_desktop.jpg)
+
+![](docs/images/breadcrumbs_mobile.jpg)
+
+</details>
+
+
+### List of All Accesories.
+
+If you are on the All Accessories page, you will see a list of products that are sold in the Сar Gadger World online store.
+
+Each product has:
+- Picture. 
+- The name of the manufacturer who made this accessory.
+- The name of the product.
+- Stock Keeping Unit.
+- Informing the buyer of which cars the accessory is suitable for, or information that this product is universal and suitable for all brands of cars.
+- The price of the accessory has a larger font and is placed on a gray background to make it easier and faster for the buyer to find it.
+
+Sort options are available to sort the list by:
+- The newest ones first
+- Name (A-Z)
+- Name (Y-A)
+- Price (low to high)
+- Price (from high to low)
+
+<details>
+<summary>
+Screenshots of the All Accessories page
+</summary>
+
+![](docs/images/all_accessories_page.jpg)
+
+List of accessories with sorting options:
+![](docs/images/all_accessories_page_with_sortmenu.jpg)
+
+</details>
+<br>
+
+**Only staff have access to the buttons:**
+- Edit. Allows to edit the accessory.
+- Delete. Allows to delete the accessory.
+
+
+### Product Details Page
+
+The Product Details page provides users with an enlarged image and has the following information about the accessory:
+- Enlarged image. 
+- The name of the manufacturer who made this accessory.
+- The name of the product.
+- Stock Keeping Unit.
+- Detailed description of the accessory.
+- Informing the buyer of which cars the accessory is suitable for, or information that this product is universal and suitable for all brands of cars.
+- The price of the accessory has a larger font and is placed on a gray background to make it easier and faster for the buyer to find it.
+- A cell for entering the quantity. 
+- A button to add the accessory to the shopping cart.
+
+If the user has previously registered, the accessory is added to the cart by clicking the ADD TO CART button, and if not, the user is redirected to the Register page for registration.
+
+If the accessory is not available, instead of the ADD TO CART button, the inactive OUT OF STOCK button is displayed in gray.
+
+<details>
+<summary>
+Screenshots of Product Detail page
+</summary>
+
+![](docs/images/product_details.jpg)
+
+![](docs/images/product_details_out_of_stock.jpg)
+
+</details>
+<br>
+
+**Only staff have access to the buttons:**
+- Edit. Allows to edit the accessory.
+- Delete. Allows to delete the accessory.
+
+
+### Sign UP / Sign In
+
+Users can register using the Sign UP page or, if the user was previously registered, Sign In on the Login page.
+
+After registration, the Confirm Email page opens, where users are provided with information that the letter has been sent to their mailbox for verification.
+
+<details>
+<summary>
+Screenshot of Sign UP, Sign In, Confirm Email and Sign Out pages
+</summary>
+
+![](docs/images/sign_up.jpg)
+
+![](docs/images/sign_in.jpg)
+
+![](docs/images/confirm_email.jpg)
+
+![](docs/images/sign_out.jpg)
+
+</details>
+
+
+### Checkout
+
+The ordering process consists of two stages:
+
+1.  - View the order
+    - Add delivery address
+    ![](docs/images/checkout_address_and_order.jpg)
+    - Enter payment details
+    ![](docs/images/checkout_payment_info.jpg)
+2.  - Order confirmation
+    ![](docs/images/order_success.jpg)
+
+The Checkout page clearly displays the total to be paid. And also under the button COMPLETE ORDER will appear a message which
+ will inform the buyer that he will be charged an amount equal to the amount of the order.
+
+ If the user enters incorrect card data, the message "You card number is invalid" will appear under the Payment cell, which clearly informs him about the problem.
+
+All information related to Billing is handled by Stripe.
+
+Billing Address or Card details are **never** saved in the database.
+
+
+### Footer
+
+The Footer includes:
+
+- A link back to the All Accessories page
+- Link to the Subscribe to the Newsletter page.
+- A link to the Privacy Policy
+- A link to the [GitHub repository for the project](https://github.com/satogako/CarGadgetWorld).
+
+<details>
+
+<summary>Screenshot of Footer on desktop and mobile</summary>
+
+![](docs/images/footer_large_screen.jpg)
+
+![](docs/images/footer_mobile_screen.jpg)
+
+
+</details>
+
+
+### Privacy Policy
+
+I included a Privacy Policy link in the Footer which explains how data may be used. I used [Privacy Policy Generator](https://www.privacypolicygenerator.info/) for help writing the policy.
+
+<details>
+<summary>
+Screenshot of Privacy Policy
+</summary>
+
+![](docs/images/privacy_policy1.jpg)
+![](docs/images/privacy_policy2.jpg)
+![](docs/images/privacy_policy3.jpg)
+![](docs/images/privacy_policy4.jpg)
+![](docs/images/privacy_policy5.jpg)
+![](docs/images/privacy_policy6.jpg)
+
+</details>
+
+
+### Notifications
+
+Django Notifications and Bootstrap's notification elements have been combined to create elegant notifications that can be dismissed when the user performs an action.
+
+The user, depending on his actions, can receive four types of messages:
+- Success notification.
+- Informative message.
+- Warning.
+- Error message.
+
+<details>
+<summary>
+Screenshots of four types of messages
+</summary>
+
+![](docs/images/success_message.jpg)
+
+![](docs/images/info_message.jpg)
+
+![](docs/images/warning_message.jpg)
+
+![](docs/images/error_message.jpg)
+
+</details>
+
+
+### Favicon
+
+![](media/favicons/favicon.ico)
+
+Users can add a link to the Car Gadget World website to the home screen of their smartphone or tablet if they are using a mobile browser. At the same time, the icon of the website will be displayed on the main screen, as well as the name of the application. Users can conveniently launch the website by clicking on this icon on their device's home screen.
+
+I added theme color and background_color `"theme_color": "#333333",
+"background_color": "#333333",` in the site.webmanifest file to give the site a more consistent look in [PWA](https://en.wikipedia.org/wiki/Progressive_web_app) mode and better match its overall color scheme.
