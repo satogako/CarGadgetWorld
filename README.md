@@ -399,3 +399,114 @@ Users can add a link to the Car Gadget World website to the home screen of their
 
 I added theme color and background_color `"theme_color": "#333333",
 "background_color": "#333333",` in the site.webmanifest file to give the site a more consistent look in [PWA](https://en.wikipedia.org/wiki/Progressive_web_app) mode and better match its overall color scheme.
+
+
+## Staff Only Features
+
+### Product Management
+
+Staff can add products without using the Django admin panel. For this, a convenient form is used on the Add a Product page. To get to this page, the staff needs to click on the user's name in the Navbar and select Product Management.
+
+<details>
+<summary>
+Screenshot of Add a Product page
+</summary>
+
+![](docs/images/add_product_page.jpg)
+
+</details>
+
+
+### All Accessories page
+
+For staff, the All Accessories page contains links to each product:
+- Edit. To edit the product, the user is redirected to a separate page.
+- Delete. To remove the product. The user remains on this same page. When you click on remove, the product is immediately removed without confirmation.
+
+<details>
+<summary>
+Screenshot of All Accessories page as staff member
+</summary>
+
+![](docs/images/all_accessories_staff.jpg)
+
+Screenshot of editing a product as staff member
+![](docs/images/edit_product_staff.jpg)
+
+</details>
+
+
+### Product Details page
+
+For staff, the Product Details page contains links to each product:
+- Edit. To edit the product, the user is redirected to a separate page.
+- Delete. To remove the product. The user remains on this same page. When you click on remove, the product is immediately removed without confirmation.
+
+<details>
+<summary>
+Screenshot of Product Details page as staff member
+</summary>
+
+![](docs/images/product_details_staff.jpg)
+
+Screenshot of editing a product as staff member
+![](docs/images/edit_product_staff.jpg)
+
+</details>
+
+
+### Custom Error Page
+
+Custom error page were added for 404 errors.
+
+<details>
+<summary>Screenshot of custom 404 page</summary>
+
+![](docs/images/screenshot_404.jpg)
+
+</details>
+
+
+### Features Left to Implement
+
+Features I didn't get to implement in this iteration but plan to add in future include:
+
+- Guests should be able to place orders without registering for an account
+- A Discount Code system or Option for time-based Sales
+- I would like migrate to using Stripe Checkout as some of these features like discount codes come built-in.
+- Mailchimp could be connected to user profiles to include campaigns such as birthday emails with discounts, or follow up emails on completed orders.
+- Sign in with Google.
+- Add a CAPTCHA or some other form of validation to Contact Us form to prevent abuse.
+- Add a "recently viewed" carousel of products to follow the user around the site.
+- Add the ability for users to add products to their wish list. This would be useful for users who want to keep track of products they are interested in but don't want to purchase.
+- Add a page that would display a list of orders made, so that staff do not need to enter the admin panel, but can do it directly from the site itself.
+- Compress product images with [TinyPNG](https://tinypng.com/) to speed up pages loading.
+- I haven't finished the user profiles due to lack of time, which I plan to complete so that returning buyers don't have to add their details again.
+- Add auto-completion of the email field on the checkout page so that the user who registered or logged in does not need to fill it in again.
+
+
+## Technologies Used
+
+- [Python](https://www.python.org/)
+- [Django](https://www.djangoproject.com) used as the Python framework for the site.
+- [pip](https://pip.pypa.io/en/stable/) for installing Python packages.
+- [Git](https://git-scm.com/) for version control.
+- [Sourcetree](https://www.sourcetreeapp.com/) for managing the remote repository.
+- [AWS S3](https://aws.amazon.com/s3) used for online static file storage.
+- [PostgreSQL](https://www.postgresql.org) used as the relational database management.
+- [ElephantSQL](https://www.elephantsql.com) used as the Postgres database.
+- [Heroku](https://www.heroku.com) used for hosting the deployed back-end site.
+- [GitHub](https://github.com/) for storing the repository online during development.
+- [Visual Studio Code](https://code.visualstudio.com/) as a local based IDE.
+- [Balsamiq](https://balsamiq.com/wireframes/) for wireframing.
+- [Bootstrap 5](https://getbootstrap.com/) as a front end framework.
+- [Google Chrome](https://www.google.com/intl/en_ie/chrome/), [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/) and [Safari](https://www.apple.com/safari/) for testing on macOS Monterey.
+- [Microsoft Edge](https://www.microsoft.com/en-us/edge) for testing on Windows 11.
+- [Safari](https://www.apple.com/safari/) on iOS and iPadOS 15.
+- [Google Chrome](https://www.google.com/intl/en_ie/chrome/) on Android 12.
+- [Mailchimp](https://mailchimp.com/) for newsletter subscription service.
+- [favicon.io](https://favicon.io/favicon-generator/) to make a favicon for site.
+- [Meta Tags](https://metatags.io/) to prepare the Meta tags for social media share previews.
+
+
+
