@@ -455,7 +455,7 @@ Screenshot of editing a product as staff member
 </details>
 
 
-### Custom Error Page
+## Custom Error Page
 
 Custom error page were added for 404 errors.
 
@@ -467,7 +467,7 @@ Custom error page were added for 404 errors.
 </details>
 
 
-### Features Left to Implement
+## Features Left to Implement
 
 Features I didn't get to implement in this iteration but plan to add in future include:
 
@@ -507,6 +507,118 @@ Features I didn't get to implement in this iteration but plan to add in future i
 - [Mailchimp](https://mailchimp.com/) for newsletter subscription service.
 - [favicon.io](https://favicon.io/favicon-generator/) to make a favicon for site.
 - [Meta Tags](https://metatags.io/) to prepare the Meta tags for social media share previews.
+
+
+## Ecommerce Business Model
+
+This site sells goods to individual customers, and therefore follows a `Business to Customer` model.
+It is of the simplest **B2C** forms, as it focuses on individual transactions, and doesn't need anything
+such as monthly/annual subscriptions.
+
+It is still in its early development stages, although it already has a newsletter, and links for social media marketing.
+
+Social media can potentially build a community of users around the business, and boost site visitor numbers,
+especially when using larger platforms such a Facebook.
+
+A newsletter list can be used to send regular messages to site users who opt in, such as what items are on special offer, new items in stock.
+
+
+## Search Engine Optimization (SEO) & Social Media Marketing
+
+### Keywords
+
+I've identified some appropriate keywords to align with my site, that should help users
+when searching online to find my page easily from a search engine.
+I made sure to make use of semantic html so these keywords were picked up by search engines.
+
+```html
+<title>Car Gadget World | Car Accessories</title>
+      <meta name="description" 
+        content="Car Gadget World is an online store offering high quality
+         and stylish car accessories to enhance your driving experience."
+      >
+
+      <meta name="keywords" 
+        content="car accessories, car gadgets, car chargers, car phone holders,
+         car vacuum cleaners, car air fresheners, car organizers, car pillows, 
+         car keychains, branded car accessories, car accessory brands, luxury 
+         car accessories, car interior accessories, car exterior accessories, 
+         premium car accessories"
+      >
+```
+
+
+### Sitemap
+
+I've used [XML-Sitemaps](https://www.xml-sitemaps.com) to generate a sitemap.xml file.
+This was generated using my deployed site URL: https://car-gadget-world-605f69b77cdd.herokuapp.com/
+
+After it finished crawling the entire site, it created a
+[sitemap.xml](sitemap.xml) which I've downloaded and included in the repository.
+
+
+### Robots
+
+I've created the [robots.txt](robots.txt) file at the root-level.
+Inside, I've included the settings:
+
+```
+User-agent: *
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: add/
+Disallow: edit/
+Disallow: delete/
+
+Sitemap: https://car-gadget-world-605f69b77cdd.herokuapp.com/sitemap.xml
+```
+
+Further links for future implementation:
+- [Google search console](https://search.google.com/search-console)
+- [Creating and submitting a sitemap](https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap)
+- [Managing your sitemaps and using sitemaps reports](https://support.google.com/webmasters/answer/7451001)
+- [Testing the robots.txt file](https://support.google.com/webmasters/answer/6062598)
+
+
+### Social Media Marketing
+
+Creating a strong social base (with participation) and linking that to the business site can help drive sales.
+
+I included links in the footer which could be used for potential Facebook, Twitter, Instagram and TikTok presences for the business.
+
+I've created a mockup Facebook business account using the
+[Balsamiq template](https://code-institute-org.github.io/5P-Assessments-Handbook/files/Facebook_Mockups.zip)
+provided by Code Institute.
+
+<details>
+
+<summary>Facebook Page Mockup</summary>
+
+![](docs/images/facebook_page_cgw.jpg)
+
+</details>
+<br>
+For this business I envision a lot of the social media marketing being very visual, using the current most popular formats like Instagram Reels and TikTok. As these are primarily video based I did not mock any for the purposes of this coding project.
+
+
+### Newsletter Marketing
+
+I used [Mailchimp](https://mailchimp.com/) to set up a newsletter sign-up form on my application, to allow users to supply their
+email address if they are interested in learning more and to drive repeat business. 
+
+There's a lot of power in Mailchimp, and campaigns could be set up such as a discount code near a customer's birthday, or integration with webhooks.
+
+<details>
+<summary>
+Screenshots of Newsletter Sign-up Form
+</summary>
+
+![](docs/images/news_letter_page.jpg)
+
+</details>
+
+
+
 
 
 
