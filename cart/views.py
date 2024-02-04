@@ -35,9 +35,10 @@ def add_to_cart(request, item_id):
             'to make purchases.'
         )
         return redirect('account_signup')
-  
+
+
 def adjust_cart(request, item_id):
-    '''Adjust the quantity of the specified product 
+    '''Adjust the quantity of the specified product
         to the specified amount
     '''
     product = get_object_or_404(Product, pk=item_id)
@@ -49,24 +50,24 @@ def adjust_cart(request, item_id):
         messages.warning(request, f'The quantity must be an integer')
 
     cart = request.session.get('cart', {})
-  
+
     if quantity < 1:
         cart[item_id] = 1
         messages.warning(
             request, f"The quantity can't be less than 1"
         )
-   
+
     elif quantity < 100:
-            cart[item_id] = quantity
-            messages.success(
+        cart[item_id] = quantity
+        messages.success(
             request, f'Updated {product.name} quantity to {cart[item_id]}'
-            )
+        )
     else:
-         cart[item_id] = 1
-         messages.info(
+        cart[item_id] = 1
+        messages.info(
             request, f'The quantity must be less 100'
         )
-    
+
     request.session['cart'] = cart
     return redirect(reverse('shopping_cart'))
 

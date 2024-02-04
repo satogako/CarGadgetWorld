@@ -618,7 +618,281 @@ Screenshots of Newsletter Sign-up Form
 </details>
 
 
+## Testing
+
+During the development of the project, I consistently conducted intensive manual testing and saved screenshots as soon as I encountered issues or errors. I documented the steps to reproduce the errors, the expected behavior, and the resolution process to have this information for future reference.
 
 
+### Browser Compatibility
 
+I tested the website on four different operating systems on four different types of hardware and didn't find any rendering bugs or unexpected behaviour between the browsers tested.
+
+| Operating System | Chrome | Firefox | Edge | Safari |
+|------------------|--------|---------|------|--------|
+| Windows 10       | ✅      | ✅       | ✅    | N/A   |
+| Android 13       | ✅      | ✅       | ✅    | ✅   |
+| iPadOS 16.3  | N/A   | N/A       | N/A   | ✅   |
+
+
+### Responsiveness
+
+I tested for responsiveness on many different sized viewports from 330px wide up to Ultrawide resolutions, and using different hardware (Monitors, Laptops, Phones).
+
+I used [Polypane](https://polypane.app/) during development to test many different viewport sizes at once.
+
+
+### Performance Testing
+
+Performance testing was done in Google Chrome on macOS.
+
+| Page 	| Performance 	| Accessibility 	| Best Practices 	| SEO 	|
+|---	|---	|---	|---	|---	|
+| [Landing Page (Mobile)](docs/images/testing/lighthouse/mobile_index.jpg) 	| 78 	| 94 	| 100 	| 100 	|
+| [Landing Page (Desktop)](docs/images/testing/lighthouse/desktop_index.jpg) 	| 97 	| 94 	| 100 	| 100 	|
+| [Products List (Mobile)](docs/images/testing/lighthouse/product_list_mobile.jpg) 	| 62 	| 93 	| 100	| 92	|
+| [Products List (Desktop)](docs/images/testing/lighthouse/product_list_desktop.jpg) 	| 83 	| 93 	| 100	| 90 	|
+| [Product Detail (Mobile)](docs/images/testing/lighthouse/product_details_mobile.jpg) 	| 72 	| 95 	| 100 	| 100 	|
+| [Product Detail (Desktop)](docs/images/testing/lighthouse/product_details_desktop.jpg) 	| 96 	| 95	| 100 	| 100 	|
+| [Privacy Policy (Mobile)](docs/images/testing/lighthouse/privacy_policy_mobile.jpg) 	| 85 	| 100 	| 100 	| 100 	|
+| [Privacy Policy (Desktop)](docs/images/testing/lighthouse/privacy_policy_desktop.jpg) 	| 93 	| 100 	| 100 	| 100 	|
+| [Product Management (Mobile)](docs/images/testing/lighthouse/product_management_mobile.jpg) 	| 78 	| 100 	| 100 	| 100 	|
+| [Product Management (Desktop)](docs/images/testing/lighthouse/product_management_desktop.jpg) 	| 95 	| 100 	| 100 	| 100 	|
+| [News Letter (Mobile)](docs/images/testing/lighthouse/news_letter_mobile.jpg) 	| 67 	| 91 	| 91 	| 100 	|
+| [News Letter (Desktop)](docs/images/testing/lighthouse/news_letter_desktop.jpg) 	| 74 	| 91 	| 91 	| 100 	|
+| [Cart (Mobile)](docs/images/testing/lighthouse/cart_mobile.jpg) 	| 73 	| 100 	| 100 	| 100 	|
+| [Cart (Desktop)](docs/images/testing/lighthouse/cart_desktop.jpg) 	| 84 	| 100 	| 100 	| 100 	|
+| [Checkout (Mobile)](docs/images/testing/lighthouse/checkout_mobile.jpg) 	| 70 	| 92 	| 100 	| 98 	|
+| [Checkout (Desktop)](docs/images/testing/lighthouse/checkout_desktop.jpg) 	| 89 	| 92 	| 100 	| 100 	|
+| [Order Success (Mobile)](docs/images/testing/lighthouse/order_success_mobile.jpg) 	| 77 	| 100 	| 100 	| 97 	|
+| [Order Success (Desktop)](docs/images/testing/lighthouse/order_success_desktop.jpg) 	| 81	| 100 	| 100 	| 100 	|
+
+
+### Accessibility Testing
+
+No errors were detected using the [WAVE Web Accessibility Evaluation Tool](https://wave.webaim.org/report#/https://car-gadget-world-605f69b77cdd.herokuapp.com/).
+
+<details>
+<summary>WAVE Web Accessibility Evaluation Tool Results</summary>
+
+![](docs/images/validation)
+
+</details>
+
+
+### User Story Testing
+
+<details>
+<summary>Easy login and log out</summary>
+
+As a **user** I can **easy login in or log out** so that **access my personal account**
+
+#### Acceptance Criteria
+
+- User can easy log into the site when not logged in
+- User can easy log out of the site when he has previously authorized
+
+**Result:** ✅ Pass
+</details>
+
+<details>
+<summary>View a list of products</summary>
+
+As a **user** I can **view a list of products** so that ** select some to purchase.**
+
+#### Acceptance Criteria
+
+- I can browse a list of products on the site
+- Each product image corresponds to a specific product
+
+**Result:** ✅ Pass
+</details>
+
+<details>
+<summary>View individual products</summary>
+
+As a **user** I can **view individual products** so that **see the price, description,, and images**
+
+#### Acceptance Criteria
+
+- If I click on an individual product, I see the brand,  description, SKU and price of the product on a separate page
+- The image corresponds to the description and name of the selected product
+
+**Result:** ✅ Pass
+</details>
+
+<details>
+<summary>View total of cart</summary>
+
+As a **user** I can **easily see my cart total** so that **keep track of my spending**
+
+#### Acceptance Criteria
+
+- The user can quickly view the total cost of the products in his cart
+- The user, being on any page of the site, can easily see the amount of accessories added to the cart
+
+
+**Result:** ✅ Pass
+</details>
+
+<details>
+<summary>Easy registration</summary>
+
+As a **user** I can **easily register** so that **have an account**
+
+#### Acceptance Criteria
+
+- User can register for an account with the site
+
+**Result:** ✅ Pass
+</details>
+
+<details>
+<summary>Sort product List and search products</summary>
+
+As a **user of the site** I can **I need to be able to sort the product list or perform a product search** so that **I can easily find the products I am interested in.**
+
+#### Acceptance Criteria
+
+- User can sort the list of products by category, price or name
+- The user can search for a product by name or description
+- The user can search for products by car brand
+- The user can search for products by accessory manufacturer
+
+**Result:** ✅ Pass
+</details>
+
+<details>
+<summary>Shopping Cart Settings</summary>
+
+As a **As a user** I can **to be able to add items to my cart** so that **view them, update quantities, remove items.**
+
+#### Acceptance Criteria
+
+- The user can add products to the cart
+- The user can view the products in the shopping cart
+- The user can update the number of products in the shopping cart
+- The user can remove products from the shopping cart
+
+**Result:** ✅ Pass
+</details>
+
+<details>
+<summary>Checkout page settings</summary>
+
+As a **As a buyer** I can **easily provide payment information** so that **I can make a purchase**
+
+#### Acceptance Criteria
+
+- The user can easily enter his payment information, check it quickly and without problems
+- The user can feel that his personal and payment information is safe
+
+**Result:** ✅ Pass
+</details>
+
+<details>
+<summary>Toast Messages</summary>
+
+As a **user** I can **see the messages** so that **clearly understand what actions are taking place**
+
+#### Acceptance Criteria
+
+- User actions are accompanied by toast messages
+
+**Result:** ✅ Pass
+</details>
+
+<details>
+<summary>Making Payment</summary>
+
+As a **buyer** I can **enter my card payment details** so that **pay for a selection of products**
+
+#### Acceptance Criteria
+
+- User can enter payment data and pay
+- The user can view the order confirmation after placing the order
+
+**Result:** ✅ Pass
+</details>
+
+<details>
+<summary>Admin and Store Management</summary>
+
+As an **online store owner** I can **access the product database directly from the site** so that **edit them quickly and easilyt**
+
+#### Acceptance Criteria
+
+- The store owner can add new items to the store
+- The store owner can change product prices, descriptions, images, and other product criteria. 
+- The store owner can remove items that are no longer for sale. 
+
+**Result:** ✅ Pass
+</details>
+
+
+### Challenges Faced
+
+- I had to spend a lot of time trying to get the frontend to work with the backend.
+- I ended up revising the models more times than I expected during development, despite spending time planning them out in advance. As I built more interoperability between the different Django apps I found more properties and methods that I hadn't initially thought of.
+
+
+### Code Validation
+
+#### HTML Validation
+
+Pages were validating using the [W3 HTML Validator](https://validator.w3.org/nu/), and pages with content that varies based on guest/logged in user/admin status were validated in each state.
+
+<details>
+<summary>W3 HTML Validation</summary>
+
+Live links to the validator provided for pages as guests, pages requiring authentication checked by pasting rendered HTML from a logged in user into validator.
+
+| Page                | URL                | Logged In Status | Result                |
+|---------------------|--------------------|------------------|-----------------------|
+| Landing Page        | /                  | Guest            | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https://car-gadget-world-605f69b77cdd.herokuapp.com/) |
+| Landing Page        | /                  | User            | ✅ No errors or warnings |
+| Shopping Cart        | /cart                  | Guest            | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https://car-gadget-world-605f69b77cdd.herokuapp.com/cart/) |
+| Shopping Cart        | /cart                  | User with cart items            | ✅ No errors or warnings |
+| Checkout        | /checkout/                 | User            | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https://car-gadget-world-605f69b77cdd.herokuapp.com/checkout/) |
+| Order Success        | /order_success/'you order number here'                  | User            | [✅ No errors or warnings] |
+| All accessories        | /car_accessories/                 | Guest            | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https://car-gadget-world-605f69b77cdd.herokuapp.com/car_accessories/) |
+| All accessories        | /car_accessories/                 | User            | [✅ No errors or warnings] |
+| Product Details        | /car_accessories/item/usb_charger/                  | Guest            | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https://car-gadget-world-605f69b77cdd.herokuapp.com/car_accessories/item/usb_charger/) |
+| Product Details        | /car_accessories/item/usb_charger/                  | User            | [✅ No errors or warnings] |
+| Login Page        | /accounts/login/                  | Guest            | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https://car-gadget-world-605f69b77cdd.herokuapp.com/accounts/login/) |
+| Log Out Page        | /accounts/logout/                  | Guest            | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https://car-gadget-world-605f69b77cdd.herokuapp.com/accounts/logout/) |
+| Register Page       | /accounts/signup/                 | Guest            | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https://car-gadget-world-605f69b77cdd.herokuapp.com/accounts/signup/) |
+| All accessories, catalogue page        | /car_accessories/catalogue/Mitsubishi/                  | Guest            | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https://car-gadget-world-605f69b77cdd.herokuapp.com/car_accessories/catalogue/Mitsubishi/) |
+| Add a Product        | /car_accessories/add/                  | Staff           | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https://car-gadget-world-605f69b77cdd.herokuapp.com/car_accessories/add/) |
+| Edit a Product       | /car_accessories/edit/12/                 | Staff            | [✅ No errors or warnings](https://validator.w3.org/nu/?doc=https://car-gadget-world-605f69b77cdd.herokuapp.com/car_accessories/edit/12/) |
+| News Letter        | /newsletter/                  | Guest            | [✅ No errors or warnings](https://validator.w3.org/nu/?showsource=yes&doc=https://car-gadget-world-605f69b77cdd.herokuapp.com/newsletter/) |
+| Privacy Policy Page        | /privacy/                 | Guest            | [✅ No errors or warnings](https://validator.w3.org/nu/?showsource=yes&doc=https://car-gadget-world-605f69b77cdd.herokuapp.com/privacy/) |
+
+</details>
+
+
+#### CSS Validation
+
+The custom CSS was validated using the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) as CSS level 3 + SVG. 
+
+![https://jigsaw.w3.org/css-validator/](https://jigsaw.w3.org/css-validator/images/vcss)
+
+
+File | Result |
+-----|--------|
+`base.css` | [✅ Pass](docs/images/testing/validation/base_css.jpg) |
+`checkout.css` | [✅ Pass](docs/images/testing/validation/checkout_css.jpg) |
+
+
+#### Python Validation
+
+All the custom Python files pass PEP8 Validation, which I checked both in the development environment and on [CI Python Linter](https://pep8ci.herokuapp.com/).
+
+| App                | File | Result |
+|-------------|------------------|--------|
+|    car_gadget_world     | `settings.py`            | [✅ Pass](docs/images/testing/validation/settings_py.jpg) |
+| car_gadget_world         | `urls.py`            | [✅ Pass](docs/images/testing/validation/cgw_urls_py.jpg) |
+| car_gadget_world         | `views.py`            | [✅ Pass](docs/images/testing/validation/cgw_views_py.jpg) |
+| cart        | `contexts.py`            | [✅ Pass](docs/images/testing/validation/cart_contexts_py.jpg) |
+| cart        | `urls.py`            | [✅ Pass](docs/images/testing/validation/cgw_urls_py.jpg) |
+| cart        | `views.py`            | [✅ Pass](docs/images/testing/validation/cart_views_py.jpg) |
 
