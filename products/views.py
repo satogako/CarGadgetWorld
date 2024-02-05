@@ -27,23 +27,24 @@ class ProductsList(generic.ListView):
         if category:
             queryset = queryset.filter(
                 category__name=category).distinct()
-        
-        if brand_auto: 
+
+        if brand_auto:
             queryset = queryset.filter(
                 auto_brand__auto_brand=brand_auto).distinct()
-            
+
         if product_brand:
             queryset = queryset.filter(
                 brand__name=product_brand).distinct()
 
         if query:
-            queryset = queryset.filter(name__icontains=query
-                                    ).distinct() | queryset.filter(
+            queryset = queryset.filter(
+                name__icontains=query).distinct() | queryset.filter(
                 description__icontains=query).distinct()
 
         elif query == '':
-            messages.error(self.request,
-                        "You didn't enter any search criteria.")
+            messages.error(
+                self.request, "You didn't enter any search criteria."
+                )
 
             queryset = queryset.none()
 
@@ -59,14 +60,14 @@ class ProductsList(generic.ListView):
                 queryset = queryset.order_by('-price')
 
         return queryset
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
         category = self.kwargs.get('category')
         auto_brand = self.kwargs.get('brand_auto')
         product_brand = self.kwargs.get('product_brand')
-        
+
         query = self.request.GET.get('search', None)
 
         sort = self.request.GET.get('sort')
@@ -90,7 +91,7 @@ class ProductsList(generic.ListView):
 
         context['category'] = get_object_or_404(
             Category, name=category) if category else None
-        
+
         context['auto_brand_name'] = auto_brand
 
         context['product_brand_name'] = get_object_or_404(
@@ -99,7 +100,7 @@ class ProductsList(generic.ListView):
         context['search_results'] = query
 
         return context
-    
+
 
 def product_detail(request, slug):
     ''''
@@ -125,7 +126,10 @@ def add_product(request):
             messages.success(request, 'Successfully added product!')
             return redirect(reverse('add_product'))
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid')
+            messages.error(
+                request, 'Failed to add product. \
+                    Please ensure the form is valid'
+                )
     else:
         form = ProductForm()
 
@@ -152,7 +156,10 @@ def edit_product(request, product_id,):
             messages.success(request, 'Successfully updated product!')
             return redirect(reverse('product_detail', args=[product.slug]))
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid')
+            messages.error(
+                request, 'Failed to update product. \
+                    Please ensure the form is valid'
+            )
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')

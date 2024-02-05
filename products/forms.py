@@ -13,7 +13,9 @@ class ProductForm(forms.ModelForm):
         categories = Category.objects.all()
         brands = Brand.objects.all()
 
-        friendly_names_category = [(c.id, c.get_display_name()) for c in categories]
+        friendly_names_category = [
+            (c.id, c.get_display_name()) for c in categories
+        ]
         friendly_names_brands = [(c.id, c.get_display_name()) for c in brands]
 
         self.fields['category'].choices = friendly_names_category

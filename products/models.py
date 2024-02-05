@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from car_gadget_world.settings import AWS_STORAGE_BUCKET_NAME
 import os
 
+
 class Category(models.Model):
     name = models.CharField(max_length=25)
     display_name = models.CharField(max_length=25, null=True, blank=True)
@@ -50,7 +51,6 @@ class Catalogue(models.Model):
         return f'{self.auto_brand}'
 
 
-
 class Product(models.Model):
     slug = models.SlugField(max_length=50, unique=True)
     visible_to_customers = models.BooleanField(default=False)
@@ -59,8 +59,12 @@ class Product(models.Model):
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL
     )
-    brand = models.ForeignKey('Brand', null=True, blank=True, on_delete=models.SET_NULL)
-    auto_brand = models.ForeignKey('Catalogue', null=True, blank=True, on_delete=models.SET_NULL)
+    brand = models.ForeignKey(
+        'Brand', null=True, blank=True, on_delete=models.SET_NULL
+    )
+    auto_brand = models.ForeignKey(
+        'Catalogue', null=True, blank=True, on_delete=models.SET_NULL
+    )
     sku = models.CharField(max_length=254, null=True, blank=True)
     image = models.ImageField(
         upload_to='accessories_photo/', blank=True, null=True)
@@ -80,4 +84,3 @@ class Product(models.Model):
 
     def __str__(self):
         return f'{self.name}'
-
