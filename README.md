@@ -895,4 +895,30 @@ All the custom Python files pass PEP8 Validation, which I checked both in the de
 | cart        | `contexts.py`            | [✅ Pass](docs/images/testing/validation/cart_contexts_py.jpg) |
 | cart        | `urls.py`            | [✅ Pass](docs/images/testing/validation/cgw_urls_py.jpg) |
 | cart        | `views.py`            | [✅ Pass](docs/images/testing/validation/cart_views_py.jpg) |
+| checkout        | `admin.py`   | [✅ Pass](docs/images/testing/validation/checkout_admin_py.jpg) |
+| ccheckout       | `apps.py`   | [✅ Pass](docs/images/testing/validation/checkout_apps_py.jpg) |
+| checkout        | `forms.py`   | [✅ Pass](docs/images/testing/validation/checkout_forms_py.jpg) |
+| checkout        | `models.py`   | [✅ Pass](docs/images/testing/validation/checkout_models_py.jpg) |
+| checkout        | `signals.py`   | [✅ Pass](docs/images/testing/validation/checkout_signals_py.jpg) |
+| checkout        | `urls.py`   | [✅ Pass](docs/images/testing/validation/checkout_urls_py.jpg) |
+| checkout        | `views.py`   | [✅ Pass](docs/images/testing/validation/checkout_views_py.jpg) |
+| home        | `urls.py`   | [✅ Pass](docs/images/testing/validation/home_urls_py.jpg) |
+| home        | `views.py`   | [✅ Pass](docs/images/testing/validation/home_views_py.jpg) |
+| products        | `admin.py`   | [✅ Pass](docs/images/testing/validation/products_admin_py.jpg) |
+| products        | `forms.py`   | [✅ Pass](docs/images/testing/validation/products_forms_py.jpg) |
+| products        | `models.py`   | [✅ Pass](docs/images/testing/validation/products_models_py.jpg) |
+| products        | `urls.py`   | [✅ Pass](docs/images/testing/validation/products_urls_py.jpg) |
+| products        | `views.py`   | [✅ Pass](docs/images/testing/validation/products_views_py.jpg) |
+| profiles        | `admin.py`   | [✅ Pass](docs/images/testing/validation/profiles_admin_py.jpg) |
+| profiles        | `models.py`   | [✅ Pass](docs/images/testing/validation/profiles_models_py.jpg) |
 
+
+#### JavaScript
+
+File | Result |
+-----|--------|
+`JavaScript in the file shopping_cart.html` | [✅ Pass](docs/images/testing/validation/js_in_shopping_cart_html.jpg) |
+`stripe_elements.js` | [✅ Pass](docs/images/testing/validation/stripe_elements_js.jpg) |
+ 
+
+---
