@@ -44,14 +44,17 @@ def checkout(request):
                         order_line_item.save()
                 except Product.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your cart wasn't found in our database. "
+                        "One of the products in your cart wasn't found \
+                            in our database."
                         "Please call us for assistance!")
                     )
                     order.delete()
                     return redirect(reverse('shopping_cart'))
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('check_success', args=[order.order_number]))
+            return redirect(
+                reverse('check_success', args=[order.order_number])
+            )
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
@@ -59,9 +62,11 @@ def checkout(request):
         cart = request.session.get('cart', {})
 
         if not cart:
-            messages.error(request, "There's nothing in your bag at the moment")
+            messages.error(
+                request, "There's nothing in your bag at the moment"
+            )
             return redirect(reverse('products'))
-        
+
         current_cart = cart_contents(request)
         total = current_cart['grand_total']
         stripe_total = round(total * 100)
@@ -70,7 +75,7 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
-        
+
         order_form = PurchaseForm()
 
     if not stripe_public_key:
@@ -84,7 +89,7 @@ def checkout(request):
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
     }
-    
+
     return render(request, template, context)
 
 

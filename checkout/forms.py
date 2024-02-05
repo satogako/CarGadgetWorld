@@ -5,8 +5,8 @@ from .models import Purchase
 class PurchaseForm(forms.ModelForm):
     class Meta:
         model = Purchase
-        fields = ('first_name', 'last_name', 'phone', 'email_addres', 
-                  'country', 'full_address', 'town_city', 'post_code', 
+        fields = ('first_name', 'last_name', 'phone', 'email_addres',
+                  'country', 'full_address', 'town_city', 'post_code',
                   'order_notes',)
 
     def __init__(self, *args, **kwargs):
