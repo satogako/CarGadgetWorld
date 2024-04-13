@@ -12,6 +12,7 @@ from cart.contexts import cart_contents
 import stripe
 import json
 
+
 @require_POST
 def cache_checkout_data(request):
     try:
@@ -121,7 +122,8 @@ def checkout_achievement(request, order_number):
     save_info = request.session.get('save_info')
     order = get_object_or_404(Purchase, order_number=order_number)
     messages.success(request, f'Order successfully processed! \
-        Your order number is {order_number}')
+        Your order number is {order_number}. \
+        The confirmation will be sent by {order.email_addres}')
 
     if 'cart' in request.session:
         del request.session['cart']

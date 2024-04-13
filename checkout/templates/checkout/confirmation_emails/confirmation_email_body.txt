@@ -1,0 +1,22 @@
+Hello {{ purchase.first_name }} {{ purchase.last_name }}!
+
+This is a confirmation of your order at Car Gadget World. Your order information is below:
+
+Order Number: {{ purchase.order_number }}
+Order Date: {{ purchase.date }}
+
+Order Total: {{purchase.order_total }} euro 
+Delivery: {{ purchase.delivery_cost }} euro
+Grand Total: {{ purchase.grand_total }} euro
+
+Your order will be shipped to {{ purchase.full_address }} in {{ purchase.town_city }}, {{ purchase.country }}.
+
+We've got your phone number on file as {{ purchase.phone }}.
+
+If you have any questions, feel free to contact us at {{ contact_email }}.
+
+Thank you for your order!
+
+Sincerely,
+
+Car Gadget World.

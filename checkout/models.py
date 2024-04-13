@@ -5,6 +5,8 @@ from django.db import models
 from django.db.models import Sum
 from django.conf import settings
 
+from django_countries.fields import CountryField
+
 from products.models import Product
 
 
@@ -14,7 +16,9 @@ class Purchase(models.Model):
     last_name = models.CharField(max_length=35, null=False, blank=False)
     email_addres = models.EmailField(max_length=254, null=False, blank=False)
     phone = models.CharField(max_length=25, null=False, blank=False)
-    country = models.CharField(max_length=35, null=False, blank=False)
+    country = CountryField(
+        blank_label='Country / Region*', null=False, blank=False
+    )
     full_address = models.CharField(max_length=254, null=False, blank=False)
     town_city = models.CharField(max_length=35, null=False, blank=False)
     post_code = models.CharField(max_length=20, null=True, blank=True)

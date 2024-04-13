@@ -20,7 +20,6 @@ class PurchaseForm(forms.ModelForm):
             'last_name': 'Last Name',
             'phone': 'Phone Number',
             'email_addres': 'Email Address',
-            'country': 'Country / Region',
             'full_address': 'Full address (street, house number, '
                             'apartment number)',
             'town_city': 'Town / City',
@@ -31,10 +30,11 @@ class PurchaseForm(forms.ModelForm):
 
         self.fields['first_name'].widget.attrs['autofocus'] = True
         for field in self.fields:
-            if self.fields[field].required:
-                placeholder = f'{placeholders[field]} *'
-            else:
-                placeholder = placeholders[field]
-            self.fields[field].widget.attrs['placeholder'] = placeholder
+            if field != 'country':
+                if self.fields[field].required:
+                    placeholder = f'{placeholders[field]} *'
+                else:
+                    placeholder = placeholders[field]
+                self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False

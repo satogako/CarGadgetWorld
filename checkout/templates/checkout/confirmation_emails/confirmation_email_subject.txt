@@ -1,0 +1,1 @@
+Car Gadget World Confirmation for Order Number {{ purchase.order_number }}

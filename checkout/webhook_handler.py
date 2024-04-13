@@ -10,6 +10,7 @@ import json
 import time
 import stripe
 
+
 class StripeWH_Handler:
     """Handle Stripe webhooks"""
 
@@ -24,7 +25,8 @@ class StripeWH_Handler:
             {'purchase': purchase})
         body = render_to_string(
             'checkout/confirmation_emails/confirmation_email_body.txt',
-            {'purchase': purchase, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+            {'purchase': purchase,
+                'contact_email': settings.DEFAULT_FROM_EMAIL})
 
         send_mail(
             subject,
@@ -40,7 +42,7 @@ class StripeWH_Handler:
         return HttpResponse(
             content=f'Unhandled webhook received: {event["type"]}',
             status=200)
-    
+
     def handle_payment_intent_succeeded(self, event):
         """
         Handle the payment_intent.succeeded webhook from Stripe
@@ -63,8 +65,8 @@ class StripeWH_Handler:
         while attempt <= 5:
             try:
                 order = Purchase.objects.get(
-                    first_name__iexact=shipping_details.name[0],
-                    last_name__iexact=shipping_details.name[1],
+                    first_name__iexact=shipping_details.name.split(' ', 1)[0],
+                    last_name__iexact=shipping_details.name.split(' ', 1)[1],
                     email_addres__iexact=billing_details.email,
                     phone__iexact=shipping_details.phone,
                     country__iexact=shipping_details.address.country,
@@ -78,21 +80,22 @@ class StripeWH_Handler:
 
                 order_exists = True
                 break
-                
+
             except Purchase.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
         if order_exists:
+            self._send_confirmation_email(order)
             return HttpResponse(
                     content=f'Webhook received: {event["type"]} | \
                         SUCCESS Verified order olready in database',
-                        status=200)
+                            status=200)
         else:
             order = None
             try:
                 order = Purchase.objects.create(
-                        first_name=shipping_details.name[0],
-                        last_name=shipping_details.name[1],
+                        first_name=shipping_details.name.split(' ', 1)[0],
+                        last_name=shipping_details.name.split(' ', 1)[1],
                         email_addres=billing_details.email,
                         phone=shipping_details.phone,
                         country=shipping_details.address.country,
@@ -117,7 +120,7 @@ class StripeWH_Handler:
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR {e}',
                     status=500)
-
+        self._send_confirmation_email(order)
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | \
             SUCCES: Created order in webhook',
