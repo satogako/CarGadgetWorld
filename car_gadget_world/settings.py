@@ -50,9 +50,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'home',
     'products',
-    'profiles',
     'cart',
     'checkout',
+    'wish_list',
 
     # Other
     'storages',

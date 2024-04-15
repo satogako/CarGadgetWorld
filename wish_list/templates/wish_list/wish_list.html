@@ -1,0 +1,26 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>My Wish List</h2>
+
+<ul>
+    {% for product in wishlist_products %}
+    <li>
+        {{ product.name }}
+        <img src="{{ product.image_link }}" alt="{{ product.name }}">
+        <p>Price: {{ product.price }} €</p>
+        <p>SKU: {{ product.sku }}</p>
+        <form action="{% url 'add_to_cart' product.id %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="quantity" value="1">
+            <input type="submit" class="btn btn-color btn-sm btn-width-min50" value="Add to Cart">  
+            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+          </form>
+        <a href="{% url 'remove_from_wish_list' product.id %}">Remove</a>
+    </li>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}
