@@ -7,7 +7,7 @@ class WishListAdmin(admin.ModelAdmin):
     list_display = (
         'user', 'get_products',
     )
-    
+
     def get_products(self, obj):
         products_html = '<ul>'
         for product in obj.products.all():
@@ -15,5 +15,6 @@ class WishListAdmin(admin.ModelAdmin):
         products_html += '</ul>'
         return format_html(products_html)
     get_products.short_description = 'Products'
+
 
 admin.site.register(WishList, WishListAdmin)
