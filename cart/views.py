@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from django.urls import reverse
 from django.contrib import messages
 from products.models import Product
+from wish_list.models import WishList
 
 
 def view_cart(request):
@@ -28,6 +29,17 @@ def add_to_cart(request, item_id):
             messages.success(request, f'Added {product.name} to your cart')
 
         request.session['cart'] = cart
+
+        """Сheck whether the request was made from the wishlist and if yes,
+            removes the product from the Wish List page.
+        """
+        if 'wish_list' in redirect_url:
+            wish_list = WishList.objects.get(user=request.user)
+            wish_list.products.remove(product)
+            messages.success(
+                request, f'Removed {product.name} from your wish list'
+            )
+
         return redirect(redirect_url)
     else:
         messages.info(
