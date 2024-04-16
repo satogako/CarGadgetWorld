@@ -223,6 +223,11 @@ footer i:hover {
     display: inline-block;
 }
 
+/* Table */
+.table-border-top {
+    border-top: 1px solid #dee2e6 !important;
+}
+
 /* Forms */
 .form-w-50 {
     max-width: 50%;

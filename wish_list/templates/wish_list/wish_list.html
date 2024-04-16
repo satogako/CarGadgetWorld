@@ -1,26 +1,83 @@
 
 {% extends 'base.html' %}
+{% load static %}
+
+{% block location %}
+  <div class="container-fluid mb-2">
+    <div class="row">
+      <div class="col-12">
+        <nav style="--bs-breadcrumb-divider: '→';" aria-label="breadcrumb">
+          <ol class="breadcrumb pt-1">
+            <li class="breadcrumb-item align-middle">
+              <a href="{% url 'home' %}" class="text-decor text-muted">Home</a>
+            </li>
+            <li class="breadcrumb-item dark-text-color" aria-current="page">
+              My Wish List
+            </li> 
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+{% endblock %}
 
 {% block content %}
-<h2>My Wish List</h2>
-
-<ul>
-    {% for product in wishlist_products %}
-    <li>
-        {{ product.name }}
-        <img src="{{ product.image_link }}" alt="{{ product.name }}">
-        <p>Price: {{ product.price }} €</p>
-        <p>SKU: {{ product.sku }}</p>
-        <form action="{% url 'add_to_cart' product.id %}" method="POST">
-            {% csrf_token %}
-            <input type="hidden" name="quantity" value="1">
-            <input type="submit" class="btn btn-color btn-sm btn-width-min50" value="Add to Cart">  
-            <input type="hidden" name="redirect_url" value="{{ request.path }}">
-          </form>
-        <a href="{% url 'remove_from_wish_list' product.id %}">Remove</a>
-    </li>
-    {% endfor %}
-</ul>
-
-
+  <div class="container-fluid">
+  <div class="row px-1 px-md-5">
+    <div class="col">
+      <div class="card mb-3">
+        <div class="container">
+          <div class="row">
+            <div class="cart-body py-3">
+              <h2>My Wish List</h2>
+              {% if wishlist_products %}
+                <table class="table align-middle">
+                  <thead>
+                    <tr>
+                      <th scope="col" class="d-none d-md-table-cell">Image</th>
+                      <th scope="col">Product</th>
+                      <th scope="col" class="d-none d-md-table-cell">Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for product in wishlist_products %}
+                      <tr>
+                        <th class= "d-none d-md-table-cell w-10">
+                          <img class="img-fluid" src="{{ product.image_link }}" alt="{{ product.name }}">
+                        </th>
+                        <th>
+                          <h3 class="fs-5">{{ product.name }}</h>
+                          <p class="text-muted fs-6">{{ product.sku }}</p>
+                        </th>
+                        <td class="d-none d-md-table-cell">{{ product.price }} &euro;</td>
+                        <td class="table-border-top">
+                          <form action="{% url 'add_to_cart' product.id %}" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="quantity" value="1">
+                            <input type="submit" class="btn btn-color btn-sm btn-width-min50" value="Add to Cart">  
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                          </form>  
+                        </td>
+                        <td class="table-border-top">
+                          <a href="{% url 'remove_from_wish_list' product.id %}" 
+                            class="curs-ponter remove-item text-danger text-decor" tabindex="0">
+                            <small>X</small>
+                          </a>
+                        </td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+                <a href="{% url 'products' %}" class="btn btn-outline-secondary">Continue Shopping</a>
+              {% else %}  
+                <p class="mt-2">You have no items in your Wish List.</p>
+                <a href="{% url 'products' %}" class="btn btn-outline-secondary">Browse Products</a>
+              {% endif %}
+            </div>
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+  </div>
 {% endblock %}

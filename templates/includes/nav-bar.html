@@ -228,6 +228,9 @@
               {{ user.username }}
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
+              <li>
+                <a class="dropdown-item" href="{% url 'wish_list' %}">My Wish List</a>
+              </li>
               {% if user.is_staff %}
                 <li>
                   <a class="dropdown-item" href="{% url 'add_product' %}">Product Management</a>
