@@ -7,6 +7,9 @@ from django.contrib import messages
 
 @login_required
 def view_wish_list(request):
+    '''
+    Displays user's wish list page.
+    '''
     wish_list, created = WishList.objects.get_or_create(user=request.user)
     products = wish_list.products.all()
     context = {
@@ -16,6 +19,10 @@ def view_wish_list(request):
 
 
 def add_to_wish_list(request, product_id):
+    '''
+    Adds product to user's wish list, showing success/info messages based on
+    the product's presence in the list or user authentication status.
+    '''
     if request.user.is_authenticated:
         product = get_object_or_404(Product, id=product_id)
         wish_list, created = WishList.objects.get_or_create(user=request.user)
@@ -41,6 +48,10 @@ def add_to_wish_list(request, product_id):
 
 @login_required
 def remove_from_wish_list(request, product_id):
+    '''
+    Removes a product from the user's wish list and redirects to
+    the wish list page.
+    '''
     product = get_object_or_404(Product, id=product_id)
     wish_list = WishList.objects.get(user=request.user)
     wish_list.products.remove(product)
