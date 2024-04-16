@@ -50,8 +50,7 @@
             <div class="col d-flex justify-content-end product-list-top">
               <div class="dropdown z-index">
                 <a class="btn btn-secondary dropdown-toggle custom-dropdown-button"
-                  type="button"
-                  
+                  href="#"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                   aria-label="Sort menu"
@@ -92,7 +91,7 @@
                   <a href="{% url 'product_detail' product.slug %}">
                   <img src="{{ product.image_link }}"
                     class="card-img-top pt-3 px-3"
-                    alt="{{ product.name }}"/>
+                    alt="{{ product.name }}">
 								</a>
 								<div class="card-body">
 									<p class="card-title text-uppercase">{{ product.brand.get_display_name }}</p>
