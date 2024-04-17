@@ -72,11 +72,11 @@
 
 ## Introduction
 
-The project is an E-commerce site for a store that sells both universal accessories and branded ones for a specific car brand.
+The project is an E-commerce site for a store that sells both universal accessories and branded ones for a specific car brand. The online store is specifically designed for car enthusiasts who value every minute spent behind the wheel, seek convenience and comfort, and aspire to stand out among other drivers.
 
 Users, including guests, can view accessories, and only registered users can add them to their cart and place orders.
 
-The project was built with Agile management principles in mind, and I used a lot of GitHub features like Issues and Projects to implement the scrum methodology, even though I was working on my own.
+The project was built with Agile management principles in mind.
 
 I wanted to create an interface for the business owner to manage the store without logging into the Django admin panel.
 
@@ -216,6 +216,7 @@ The navigation panel contains drop-down menus for viewing accessories: by catego
 Guests see links to Register or Login.
 
 Logged in users will see their username and a dropdown list containing:
+- My Wish List
 - Logout
 
 <details>
@@ -223,12 +224,13 @@ Logged in users will see their username and a dropdown list containing:
 Screenshot of dropdown for users
 </summary>
 
-![](docs/images/drop_down_registered_users.jpg)
+![](docs/images/drop_down_registered_users1.jpg)
 
 </details>
 
 
 In addition to these, staff members have access to:
+- My Wish List
 - Product Management
 - Logout
 
@@ -237,7 +239,7 @@ In addition to these, staff members have access to:
 Screenshot of dropdown for staff members
 </summary>
 
-![](docs/images/drop_down_staff_members.jpg)
+![](docs/images/drop_down_registered_members1.jpg)
 
 </details>
 
@@ -256,6 +258,22 @@ Screenshots of Shopping Cart on desktop and mobile
 ![](docs/images/screenshot_desktop_cart.jpg)
 
 ![](docs/images/Screenshot_mobile_cart.jpg)
+
+</details>
+
+
+### My Wish List
+
+The Wish List page allows registered users to add their favorite products to it in order to be able to buy them later. The products on this page are saved even when the user is logged out. Registered users can also remove their favorite accessory or add a product to the cart, after which the product will be removed from the Wish List page. If the user wants to see a detailed description of his favorite accessory, he can click on the image or product name and go to the detailed product description page.
+
+<details>
+<summary>
+Screenshots of Wish List on desktop and mobile
+</summary>
+
+![](docs/images/screenshot_wish_list.jpg)
+
+![](docs/images/screenshot_wish_list_mob.jpg)
 
 </details>
 
@@ -323,7 +341,8 @@ The Product Details page provides users with an enlarged image and has the follo
 - Detailed description of the accessory.
 - Informing the buyer of which cars the accessory is suitable for, or information that this product is universal and suitable for all brands of cars.
 - The price of the accessory has a larger font and is placed on a gray background to make it easier and faster for the buyer to find it.
-- A cell for entering the quantity. 
+- A cell for entering the quantity.
+- Button with a heart icon to add the product to the wish list page (only available to registered users) 
 - A button to add the accessory to the shopping cart.
 
 If the user has previously registered, the accessory is added to the cart by clicking the ADD TO CART button, and if not, the user is redirected to the Register page for registration.
@@ -335,7 +354,7 @@ If the accessory is not available, instead of the ADD TO CART button, the inacti
 Screenshots of Product Detail page
 </summary>
 
-![](docs/images/product_details.jpg)
+![](docs/images/product_details_new.jpg)
 
 ![](docs/images/product_details_out_of_stock.jpg)
 
@@ -537,6 +556,7 @@ Custom error page were added for 404 errors.
 
 Features I didn't get to implement in this iteration but plan to add in future include:
 
+- Change product sorting so that when selecting a product category, you can sort this category by brand.
 - Guests should be able to place orders without registering for an account
 - A Discount Code system or Option for time-based Sales
 - I would like migrate to using Stripe Checkout as some of these features like discount codes come built-in.
@@ -544,7 +564,6 @@ Features I didn't get to implement in this iteration but plan to add in future i
 - Sign in with Google.
 - Add a CAPTCHA or some other form of validation to Contact Us form to prevent abuse.
 - Add a "recently viewed" carousel of products to follow the user around the site.
-- Add the ability for users to add products to their wish list. This would be useful for users who want to keep track of products they are interested in but don't want to purchase.
 - Add a page that would display a list of orders made, so that staff do not need to enter the admin panel, but can do it directly from the site itself.
 - Compress product images with [TinyPNG](https://tinypng.com/) to speed up pages loading.
 - I haven't finished the user profiles due to lack of time, which I plan to complete so that returning buyers don't have to add their details again.
@@ -740,7 +759,7 @@ No errors were detected using the [WAVE Web Accessibility Evaluation Tool](https
 <details>
 <summary>WAVE Web Accessibility Evaluation Tool Results</summary>
 
-![](docs/images/validation)
+![](docs/images/testing/lighthouse/wave_accessibility_test.jpg)
 
 </details>
 
@@ -850,7 +869,8 @@ As a **As a buyer** I can **easily provide payment information** so that **I can
 #### Acceptance Criteria
 
 - The user can easily enter his payment information, check it quickly and without problems
-- The user can feel that his personal and payment information is safe
+- The user can feel that his personal and payment information is safe.
+- If the user does not have any products in the cart, he cannot go to the checkout page even by entering the URL directly.
 
 **Result:** ✅ Pass
 </details>
