@@ -887,9 +887,36 @@ As an **online store owner** I can **access the product database directly from t
 
 #### Acceptance Criteria
 
-- The store owner can add new items to the store
-- The store owner can change product prices, descriptions, images, and other product criteria. 
-- The store owner can remove items that are no longer for sale. 
+- Only store owner or staff can add new items to the store
+- Only store owner or staff can change product prices, descriptions, images, and other product criteria. 
+- Only store owner or staff can remove items that are no longer for sale. 
+
+**Result:** ✅ Pass
+</details>
+
+<details>
+<summary>Order confirmation by email</summary>
+
+As an **User** I can **receive order confirmation to my email** so that **I have confirmation that the order has been created**
+
+#### Acceptance Criteria
+
+- After paying for the order, the registered user will receive a confirmation letter to his email.
+- The confirmation letter contains the recipient's name, order number, date, total amount, shipping cost and the address where the order will be delivered.
+
+**Result:** ✅ Pass
+</details>
+
+<details>
+<summary>Wish List</summary>
+
+As an **User** I can **add products to the Wish List page** so that **I can later quickly find my favorite product and buy it.**
+
+#### Acceptance Criteria
+
+- A registered user can add products to the Wish List page, view this page and remove favorite products from it.
+- A registered user can add favorite products to the cart from the Wish List page without specifying their quantity. After that, this product is removed from the Wish List page.
+- Unregistered users cannot add or remove products from the wishlist page by URL.
 
 **Result:** ✅ Pass
 </details>
@@ -975,8 +1002,10 @@ All the custom Python files pass PEP8 Validation, which I checked both in the de
 | products        | `models.py`   | [✅ Pass](docs/images/testing/validation/products_models_py.jpg) |
 | products        | `urls.py`   | [✅ Pass](docs/images/testing/validation/products_urls_py.jpg) |
 | products        | `views.py`   | [✅ Pass](docs/images/testing/validation/products_views_py.jpg) |
-| profiles        | `admin.py`   | [✅ Pass](docs/images/testing/validation/profiles_admin_py.jpg) |
-| profiles        | `models.py`   | [✅ Pass](docs/images/testing/validation/profiles_models_py.jpg) |
+| wish_list        | `admin.py`   | [✅ Pass](docs/images/testing/validation/wishlist_admin_py.jpg) |
+| wish_list        | `models.py`   | [✅ Pass](docs/images/testing/validation/wishlist_models_py.jpg) |
+| wish_list        | `urls.py`   | [✅ Pass](docs/images/testing/validation/wishlist_urls_py.jpg) |
+| wish_list        | `views.py`   | [✅ Pass](docs/images/testing/validation/wishlist_views_py.jpg) |
 
 
 #### JavaScript
