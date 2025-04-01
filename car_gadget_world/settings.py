@@ -32,6 +32,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = os.environ.get('DEVELOPMENT', False)
 
 ALLOWED_HOSTS = ['car-gadget-world-605f69b77cdd.herokuapp.com',
+                 'car-gadget-world.up.railway.app',
                  os.environ.get('LOCAL_HOST')]
 
 
