@@ -18,6 +18,8 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from .views import handler404
+# Temporary for creating an admin user
+from .views import create_admin_user
 
 
 urlpatterns = [
@@ -28,6 +30,8 @@ urlpatterns = [
     path('cart/', include('cart.urls')),
     path('checkout/', include('checkout.urls')),
     path('wish_list/', include('wish_list.urls')),
+    # Temporary for creating an admin user
+    path('create-admin/', create_admin_user),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
